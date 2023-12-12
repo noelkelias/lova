@@ -1,1 +1,1 @@
-# NOVA for Mathematical Proofs
+# Nova for Mathematical Proofs
