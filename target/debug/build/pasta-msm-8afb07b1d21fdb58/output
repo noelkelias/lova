@@ -1,0 +1,358 @@
+Enabling ADX because it was detected on the host
+TARGET = Some("x86_64-apple-darwin")
+OPT_LEVEL = Some("0")
+HOST = Some("x86_64-apple-darwin")
+cargo:rerun-if-env-changed=CXX_x86_64-apple-darwin
+CXX_x86_64-apple-darwin = None
+cargo:rerun-if-env-changed=CXX_x86_64_apple_darwin
+CXX_x86_64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_CXX
+HOST_CXX = None
+cargo:rerun-if-env-changed=CXX
+CXX = None
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("true")
+CARGO_CFG_TARGET_FEATURE = Some("cmpxchg16b,fxsr,sse,sse2,sse3,sse4.1,ssse3")
+cargo:rerun-if-env-changed=CXXFLAGS_x86_64-apple-darwin
+CXXFLAGS_x86_64-apple-darwin = None
+cargo:rerun-if-env-changed=CXXFLAGS_x86_64_apple_darwin
+CXXFLAGS_x86_64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_CXXFLAGS
+HOST_CXXFLAGS = None
+cargo:rerun-if-env-changed=CXXFLAGS
+CXXFLAGS = None
+cargo:rerun-if-env-changed=CXX_x86_64-apple-darwin
+CXX_x86_64-apple-darwin = None
+cargo:rerun-if-env-changed=CXX_x86_64_apple_darwin
+CXX_x86_64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_CXX
+HOST_CXX = None
+cargo:rerun-if-env-changed=CXX
+CXX = None
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("cmpxchg16b,fxsr,sse,sse2,sse3,sse4.1,ssse3")
+cargo:rerun-if-env-changed=CXXFLAGS_x86_64-apple-darwin
+CXXFLAGS_x86_64-apple-darwin = None
+cargo:rerun-if-env-changed=CXXFLAGS_x86_64_apple_darwin
+CXXFLAGS_x86_64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_CXXFLAGS
+HOST_CXXFLAGS = None
+cargo:rerun-if-env-changed=CXXFLAGS
+CXXFLAGS = None
+cargo:rerun-if-env-changed=CXX_x86_64-apple-darwin
+CXX_x86_64-apple-darwin = None
+cargo:rerun-if-env-changed=CXX_x86_64_apple_darwin
+CXX_x86_64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_CXX
+HOST_CXX = None
+cargo:rerun-if-env-changed=CXX
+CXX = None
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("cmpxchg16b,fxsr,sse,sse2,sse3,sse4.1,ssse3")
+cargo:rerun-if-env-changed=CXXFLAGS_x86_64-apple-darwin
+CXXFLAGS_x86_64-apple-darwin = None
+cargo:rerun-if-env-changed=CXXFLAGS_x86_64_apple_darwin
+CXXFLAGS_x86_64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_CXXFLAGS
+HOST_CXXFLAGS = None
+cargo:rerun-if-env-changed=CXXFLAGS
+CXXFLAGS = None
+cargo:rerun-if-env-changed=CXX_x86_64-apple-darwin
+CXX_x86_64-apple-darwin = None
+cargo:rerun-if-env-changed=CXX_x86_64_apple_darwin
+CXX_x86_64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_CXX
+HOST_CXX = None
+cargo:rerun-if-env-changed=CXX
+CXX = None
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("cmpxchg16b,fxsr,sse,sse2,sse3,sse4.1,ssse3")
+cargo:rerun-if-env-changed=CXXFLAGS_x86_64-apple-darwin
+CXXFLAGS_x86_64-apple-darwin = None
+cargo:rerun-if-env-changed=CXXFLAGS_x86_64_apple_darwin
+CXXFLAGS_x86_64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_CXXFLAGS
+HOST_CXXFLAGS = None
+cargo:rerun-if-env-changed=CXXFLAGS
+CXXFLAGS = None
+cargo:rerun-if-env-changed=CXX_x86_64-apple-darwin
+CXX_x86_64-apple-darwin = None
+cargo:rerun-if-env-changed=CXX_x86_64_apple_darwin
+CXX_x86_64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_CXX
+HOST_CXX = None
+cargo:rerun-if-env-changed=CXX
+CXX = None
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("cmpxchg16b,fxsr,sse,sse2,sse3,sse4.1,ssse3")
+cargo:rerun-if-env-changed=CXXFLAGS_x86_64-apple-darwin
+CXXFLAGS_x86_64-apple-darwin = None
+cargo:rerun-if-env-changed=CXXFLAGS_x86_64_apple_darwin
+CXXFLAGS_x86_64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_CXXFLAGS
+HOST_CXXFLAGS = None
+cargo:rerun-if-env-changed=CXXFLAGS
+CXXFLAGS = None
+running: env -u IPHONEOS_DEPLOYMENT_TARGET "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-m64" "-arch" "x86_64" "-I" "/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semolina-0.1.4/src" "-I" "/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark" "-Wall" "-Wextra" "-mno-avx" "-fno-builtin" "-std=c++11" "-Wno-unused-command-line-argument" "-D__ADX__" "-o" "/Users/nk-mac/Documents/Research/nova_mathproofs/target/debug/build/pasta-msm-8afb07b1d21fdb58/out/src/pippenger.o" "-c" "src/pippenger.cpp"
+cargo:warning=In file included from src/pippenger.cpp:5:
+
+cargo:warning=In file included from /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/msm/pippenger.hpp:216:
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/util/thread_pool_t.hpp:85:31: warning: unused parameter 'affinity_env' [-Wunused-parameter]
+
+cargo:warning=    thread_pool_t(const char* affinity_env) : done(false)
+
+cargo:warning=                              ^
+
+cargo:warning=In file included from src/pippenger.cpp:7:
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/ec/xyzz_t.hpp:72:27: warning: use of bitwise '&' with boolean operands [-Wbitwise-instead-of-logical]
+
+cargo:warning=        {   return (bool)(X.is_zero() & Y.is_zero());   }
+
+cargo:warning=                          ^~~~~~~~~~~~~~~~~~~~~~~~~
+
+cargo:warning=                                      &&
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/msm/pippenger.hpp:197:15: note: in instantiation of member function 'xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>::affine_t::is_inf' requested here
+
+cargo:warning=    if (point.is_inf())
+
+cargo:warning=              ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/msm/pippenger.hpp:247:13: note: in instantiation of function template specialization 'mult<jacobian_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>, xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>::affine_t, const unsigned char *>' requested here
+
+cargo:warning=            mult(ret, points[0], scalars[0], nbits);
+
+cargo:warning=            ^
+
+cargo:warning=src/pippenger.cpp:16:5: note: in instantiation of function template specialization 'mult_pippenger<xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>, jacobian_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>, pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>, xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>::affine_t>' requested here
+
+cargo:warning={   mult_pippenger<xyzz_t<pallas_t>>(ret, points, npoints, scalars, mont,
+
+cargo:warning=    ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/ec/xyzz_t.hpp:72:27: note: cast one or both operands to int to silence this warning
+
+cargo:warning=        {   return (bool)(X.is_zero() & Y.is_zero());   }
+
+cargo:warning=                          ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/ec/xyzz_t.hpp:193:68: warning: use of bitwise '&' with boolean operands [-Wbitwise-instead-of-logical]
+
+cargo:warning=    inline __host__   bool is_inf() const          { return (bool)(ZZZ.is_zero() & ZZ.is_zero()); }
+
+cargo:warning=                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+cargo:warning=                                                                                 &&
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/ec/xyzz_t.hpp:428:24: note: in instantiation of member function 'xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>::is_inf' requested here
+
+cargo:warning=        } else if (p31.is_inf()) {
+
+cargo:warning=                       ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/msm/pippenger.hpp:64:28: note: in instantiation of function template specialization 'xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>::add<xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>::affine_t>' requested here
+
+cargo:warning=        buckets[booth_idx].add(p);
+
+cargo:warning=                           ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/msm/pippenger.hpp:96:5: note: in instantiation of function template specialization 'bucket<xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>, xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>::affine_t>' requested here
+
+cargo:warning=    bucket(buckets, wval, cbits, points[0]);
+
+cargo:warning=    ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/msm/pippenger.hpp:261:13: note: in instantiation of function template specialization 'tile<jacobian_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>, xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>::affine_t, xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>>' requested here
+
+cargo:warning=            tile(p, points, npoints, scalars[0], nbits,
+
+cargo:warning=            ^
+
+cargo:warning=src/pippenger.cpp:16:5: note: in instantiation of function template specialization 'mult_pippenger<xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>, jacobian_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>, pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>, xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>::affine_t>' requested here
+
+cargo:warning={   mult_pippenger<xyzz_t<pallas_t>>(ret, points, npoints, scalars, mont,
+
+cargo:warning=    ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/ec/xyzz_t.hpp:193:68: note: cast one or both operands to int to silence this warning
+
+cargo:warning=    inline __host__   bool is_inf() const          { return (bool)(ZZZ.is_zero() & ZZ.is_zero()); }
+
+cargo:warning=                                                                   ^
+
+cargo:warning=In file included from src/pippenger.cpp:6:
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/ec/jacobian_t.hpp:404:17: warning: use of bitwise '&' with boolean operands [-Wbitwise-instead-of-logical]
+
+cargo:warning=            if (H.is_zero() & p3.Z.is_zero()) {
+
+cargo:warning=                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+cargo:warning=                            &&
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/msm/pippenger.hpp:263:17: note: in instantiation of member function 'jacobian_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>::add' requested here
+
+cargo:warning=            ret.add(p);
+
+cargo:warning=                ^
+
+cargo:warning=src/pippenger.cpp:16:5: note: in instantiation of function template specialization 'mult_pippenger<xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>, jacobian_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>, pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>, xyzz_t<pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>>::affine_t>' requested here
+
+cargo:warning={   mult_pippenger<xyzz_t<pallas_t>>(ret, points, npoints, scalars, mont,
+
+cargo:warning=    ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/ec/jacobian_t.hpp:404:17: note: cast one or both operands to int to silence this warning
+
+cargo:warning=            if (H.is_zero() & p3.Z.is_zero()) {
+
+cargo:warning=                ^
+
+cargo:warning=In file included from src/pippenger.cpp:7:
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/ec/xyzz_t.hpp:72:27: warning: use of bitwise '&' with boolean operands [-Wbitwise-instead-of-logical]
+
+cargo:warning=        {   return (bool)(X.is_zero() & Y.is_zero());   }
+
+cargo:warning=                          ^~~~~~~~~~~~~~~~~~~~~~~~~
+
+cargo:warning=                                      &&
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/msm/pippenger.hpp:197:15: note: in instantiation of member function 'xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>::affine_t::is_inf' requested here
+
+cargo:warning=    if (point.is_inf())
+
+cargo:warning=              ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/msm/pippenger.hpp:247:13: note: in instantiation of function template specialization 'mult<jacobian_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>, xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>::affine_t, const unsigned char *>' requested here
+
+cargo:warning=            mult(ret, points[0], scalars[0], nbits);
+
+cargo:warning=            ^
+
+cargo:warning=src/pippenger.cpp:24:5: note: in instantiation of function template specialization 'mult_pippenger<xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>, jacobian_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>, pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>, xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>::affine_t>' requested here
+
+cargo:warning={   mult_pippenger<xyzz_t<vesta_t>>(ret, points, npoints, scalars, mont,
+
+cargo:warning=    ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/ec/xyzz_t.hpp:72:27: note: cast one or both operands to int to silence this warning
+
+cargo:warning=        {   return (bool)(X.is_zero() & Y.is_zero());   }
+
+cargo:warning=                          ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/ec/xyzz_t.hpp:193:68: warning: use of bitwise '&' with boolean operands [-Wbitwise-instead-of-logical]
+
+cargo:warning=    inline __host__   bool is_inf() const          { return (bool)(ZZZ.is_zero() & ZZ.is_zero()); }
+
+cargo:warning=                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+cargo:warning=                                                                                 &&
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/ec/xyzz_t.hpp:428:24: note: in instantiation of member function 'xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>::is_inf' requested here
+
+cargo:warning=        } else if (p31.is_inf()) {
+
+cargo:warning=                       ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/msm/pippenger.hpp:64:28: note: in instantiation of function template specialization 'xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>::add<xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>::affine_t>' requested here
+
+cargo:warning=        buckets[booth_idx].add(p);
+
+cargo:warning=                           ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/msm/pippenger.hpp:96:5: note: in instantiation of function template specialization 'bucket<xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>, xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>::affine_t>' requested here
+
+cargo:warning=    bucket(buckets, wval, cbits, points[0]);
+
+cargo:warning=    ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/msm/pippenger.hpp:261:13: note: in instantiation of function template specialization 'tile<jacobian_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>, xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>::affine_t, xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>>' requested here
+
+cargo:warning=            tile(p, points, npoints, scalars[0], nbits,
+
+cargo:warning=            ^
+
+cargo:warning=src/pippenger.cpp:24:5: note: in instantiation of function template specialization 'mult_pippenger<xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>, jacobian_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>, pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>, xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>::affine_t>' requested here
+
+cargo:warning={   mult_pippenger<xyzz_t<vesta_t>>(ret, points, npoints, scalars, mont,
+
+cargo:warning=    ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/ec/xyzz_t.hpp:193:68: note: cast one or both operands to int to silence this warning
+
+cargo:warning=    inline __host__   bool is_inf() const          { return (bool)(ZZZ.is_zero() & ZZ.is_zero()); }
+
+cargo:warning=                                                                   ^
+
+cargo:warning=In file included from src/pippenger.cpp:6:
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/ec/jacobian_t.hpp:404:17: warning: use of bitwise '&' with boolean operands [-Wbitwise-instead-of-logical]
+
+cargo:warning=            if (H.is_zero() & p3.Z.is_zero()) {
+
+cargo:warning=                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+cargo:warning=                            &&
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/msm/pippenger.hpp:263:17: note: in instantiation of member function 'jacobian_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>::add' requested here
+
+cargo:warning=            ret.add(p);
+
+cargo:warning=                ^
+
+cargo:warning=src/pippenger.cpp:24:5: note: in instantiation of function template specialization 'mult_pippenger<xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>, jacobian_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>, pasta_t<Pallas_P, 11037532056220336127, Pallas_RR, Pallas_one>, xyzz_t<pasta_t<Vesta_P, 10108024940646105087, Vesta_RR, Vesta_one>>::affine_t>' requested here
+
+cargo:warning={   mult_pippenger<xyzz_t<vesta_t>>(ret, points, npoints, scalars, mont,
+
+cargo:warning=    ^
+
+cargo:warning=/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sppark-0.1.5/sppark/ec/jacobian_t.hpp:404:17: note: cast one or both operands to int to silence this warning
+
+cargo:warning=            if (H.is_zero() & p3.Z.is_zero()) {
+
+cargo:warning=                ^
+
+cargo:warning=7 warnings generated.
+
+exit status: 0
+cargo:rerun-if-env-changed=AR_x86_64-apple-darwin
+AR_x86_64-apple-darwin = None
+cargo:rerun-if-env-changed=AR_x86_64_apple_darwin
+AR_x86_64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_AR
+HOST_AR = None
+cargo:rerun-if-env-changed=AR
+AR = None
+cargo:rerun-if-env-changed=ARFLAGS_x86_64-apple-darwin
+ARFLAGS_x86_64-apple-darwin = None
+cargo:rerun-if-env-changed=ARFLAGS_x86_64_apple_darwin
+ARFLAGS_x86_64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_ARFLAGS
+HOST_ARFLAGS = None
+cargo:rerun-if-env-changed=ARFLAGS
+ARFLAGS = None
+running: ZERO_AR_DATE="1" "ar" "cq" "/Users/nk-mac/Documents/Research/nova_mathproofs/target/debug/build/pasta-msm-8afb07b1d21fdb58/out/libpasta_msm.a" "/Users/nk-mac/Documents/Research/nova_mathproofs/target/debug/build/pasta-msm-8afb07b1d21fdb58/out/src/pippenger.o"
+exit status: 0
+running: "ar" "s" "/Users/nk-mac/Documents/Research/nova_mathproofs/target/debug/build/pasta-msm-8afb07b1d21fdb58/out/libpasta_msm.a"
+exit status: 0
+cargo:rustc-link-lib=static=pasta_msm
+cargo:rustc-link-search=native=/Users/nk-mac/Documents/Research/nova_mathproofs/target/debug/build/pasta-msm-8afb07b1d21fdb58/out
+cargo:rerun-if-env-changed=CXXSTDLIB_x86_64-apple-darwin
+CXXSTDLIB_x86_64-apple-darwin = None
+cargo:rerun-if-env-changed=CXXSTDLIB_x86_64_apple_darwin
+CXXSTDLIB_x86_64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_CXXSTDLIB
+HOST_CXXSTDLIB = None
+cargo:rerun-if-env-changed=CXXSTDLIB
+CXXSTDLIB = None
+cargo:rustc-link-lib=c++
+cargo:rerun-if-env-changed=NVCC
