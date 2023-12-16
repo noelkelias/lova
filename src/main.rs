@@ -22,49 +22,19 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
    let r1cs = load_r1cs::<G1, G2>(&FileLocation::PathBuf(circuit_file));
    let witness_generator_file = root.join(witness_gen_filepath);
 
-   let mut private_inputs = Vec::new();
-   for i in 0..iteration_count {
-       let mut private_input = HashMap::new();
-       private_input.insert("a".to_string(), json!(3));
-       private_inputs.push(private_input);
-   }
-
-   print!("{:?}", private_inputs);           
-
-   let start_public_input = [F::<G1>::from(11)];
-   print!("{:?}", start_public_input);           
-
    let pp: PublicParams<G1, G2, _, _> = create_public_params(r1cs.clone());
 
-   println!(
-      "Number of constraints per step (primary circuit): {}",
-      pp.num_constraints().0
-  );
-  println!(
-      "Number of constraints per step (secondary circuit): {}",
-      pp.num_constraints().1
-  );
+   // let mut private_inputs = Vec::new();
+   // for i in 0..iteration_count {
+   //     let mut private_input = HashMap::new();
+   //     private_input.insert("a".to_string(), json!(i+1));
+   //     private_inputs.push(private_input);
+   // }
 
-  println!(
-      "Number of variables per step (primary circuit): {}",
-      pp.num_variables().0
-  );
-  println!(
-      "Number of variables per step (secondary circuit): {}",
-      pp.num_variables().1
-  );
+   // print!("{:?}", private_inputs);           
 
-  println!("Creating a RecursiveSNARK...");
-  let start = Instant::now();
-  let recursive_snark = create_recursive_circuit(
-      FileLocation::PathBuf(witness_generator_file),
-      r1cs,
-      private_inputs,
-      start_public_input.to_vec(),
-      &pp,
-  )
-  .unwrap();
-  println!("RecursiveSNARK creation took {:?}", start.elapsed());
+   // let start_public_input = F::<G1>::from(1);
+   // print!("{:?}", start_public_input);           
 
 
 }
@@ -72,8 +42,8 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
 fn main() {
    println!("Hello, world!");
 
-   let circuit_filepath = "circuits/multiplier_sample/multiplier2_cpp/multiplier2.r1cs";
-   for witness_gen_filepath in ["circuits/multiplier_sample/multiplier2_cpp/multiplier2"] {
+   let circuit_filepath = "circuits/multiplier_test/multiplier2.r1cs";
+   for witness_gen_filepath in ["circuits/multiplier_test/multiplier2_js/multiplier2.wasm"] {
        run_test(circuit_filepath.to_string(), witness_gen_filepath.to_string());
    }
 
