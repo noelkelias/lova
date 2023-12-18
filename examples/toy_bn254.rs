@@ -1,7 +1,7 @@
 use std::{collections::HashMap, env::current_dir, time::Instant};
 
 use nova_scotia::{
-    circom::reader::load_r1cs, create_public_params,
+    circom::reader::load_r1cs, continue_recursive_circuit, create_public_params,
     create_recursive_circuit, FileLocation, F, S,
 };
 use nova_snark::{provider, CompressedSNARK, PublicParams};
