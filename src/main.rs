@@ -1,5 +1,14 @@
 use std::fs::read_to_string;
-use std::collections::HashMap;
+use std::{collections::HashMap, env::current_dir, time::Instant};
+use nova_scotia::{
+    circom::reader::load_r1cs, create_public_params, create_recursive_circuit, FileLocation, F, S,
+};
+use nova_snark::{
+    provider,
+    traits::{circuit::StepCircuit, Group},
+    CompressedSNARK, PublicParams,
+};
+use serde_json::json;
 
 
 //Encode the statement into a vector of arrays 
@@ -107,6 +116,9 @@ fn read_proof(path: &str) -> Vec<Vec<String>> {
 
 
 fn main() {
+   type G1 = pasta_curves::pallas::Point;
+   type G2 = pasta_curves::vesta::Point;
+
    // --snip--
    let proof_lines = read_proof("misc/basic_proof.txt");
    println!("{:?}", proof_lines);
@@ -120,4 +132,19 @@ fn main() {
    let encoded_reasoning = encode_reasoning(&proof_lines, &encoded_statements);
    println!("{:?}", encoded_reasoning);
    
+
+   let mut private_inputs = Vec::new();
+   for i in 0..proof_lines.len() {
+      let mut private_input = HashMap::new();
+      private_input.insert("statement".to_string(), json!(encoded_statements[i]));
+      private_input.insert("logic".to_string(), json!(encoded_logic[i]));
+      private_input.insert("reason".to_string(), json!(encoded_reasoning[i]));
+      private_inputs.push(private_input);
+  }
+
+  let json = serde_json::to_string(&private_inputs);
+  println!("{:?}", json);
+
+  let mut start_public_input = [F::<G1>::from(0); 101];
+  start_public_input[0] = F::<G1>::from(1);
 }

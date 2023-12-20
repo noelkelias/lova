@@ -1,11 +1,61 @@
 pragma circom 2.0.0;
 
 template BasicProof() {
-    signal input a;
-    signal input step_in;
-    signal output step_out;
-    step_out <== a*step_in;
+   signal input statement[3];
+   signal input logic;
+   signal input reason[6];
+   signal input step_in[101];
+
+   signal output step_out[101];
+
+   // Deciding which logic template to use
+   var success = 0;
+   component x;
+   if (logic == 1){
+      x = Hypothesis(); 
+   } else if (logic == 5){
+      x = ModusPonens();
+   }
+
+   x.statement = statement;
+   x.reason = reason;
+   x.out ==> success;
+
+   // Crafting output based on verification
+   assert(success==1);
+
+   var new_output[101] <== step_in;
+   new_output[step_in[0]] = step_in[0];
+   new_output[0] += 1; 
+   step_out <== new_output;
  }
 
- component main {public [step_in] }= BasicProof();
+template Hypothesis(){
+   signal input statement[3];
+   signal input reason[6];
+   signal output verification;
+   output <== 1;
+}
+
+template ModusPonens(){
+   signal input statement[3];
+   signal input reason[6];
+   signal output verification;
+
+   var success = 1;
+
+   //Check if A is present and formatted correctly
+   if (reason[0] != reason[3]){
+      success == 0;
+   }
+
+   //Check if implication is valid
+   if ((reason[1]!=statement[0] || reason[2]!=4) && (reason[4]!=statement[0] && reason[5]!=4)){
+      success = 0;
+   }
+
+   verification<==success;
+}
+
+component main {public [step_in] }= BasicProof();
  
