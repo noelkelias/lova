@@ -5,36 +5,47 @@ template BasicProof() {
    signal input logic;
    signal input reason[6];
    signal input step_in[101];
-
    signal output step_out[101];
 
    // Deciding which logic template to use
    var success = 0;
-   component x;
-   if (logic == 1){
-      x = Hypothesis(); 
-   } else if (logic == 5){
-      x = ModusPonens();
-   }
 
-   x.statement = statement;
-   x.reason = reason;
-   x.out ==> success;
+   if (logic == 1){
+      // component x = Hypothesis(); 
+      // x.statement <== statement;
+      // x.reason <== reason;
+      // success = x.verification;
+      success = 1;
+
+   } 
+   // else if (logic == 5){
+   //    component y = Hypothesis();
+   //    y.statement <== statement;
+   //    y.reason <== reason;
+   //    success = y.verification;
+   // }
+
 
    // Crafting output based on verification
    assert(success==1);
 
-   var new_output[101] <== step_in;
-   new_output[step_in[0]] = step_in[0];
-   new_output[0] += 1; 
-   step_out <== new_output;
+   for (var i = 0; i < 101; i++){
+      if (i==0){
+         step_out[i] <== step_in[i] +1;
+      } else if (i == step_in[i]){
+         step_out[i] <== step_in[0];
+      } else {
+         step_out[i] <== step_in[i];
+      }
+   }
+
  }
 
 template Hypothesis(){
    signal input statement[3];
    signal input reason[6];
    signal output verification;
-   output <== 1;
+   verification <== 1;
 }
 
 template ModusPonens(){
@@ -46,7 +57,7 @@ template ModusPonens(){
 
    //Check if A is present and formatted correctly
    if (reason[0] != reason[3]){
-      success == 0;
+      success = 0;
    }
 
    //Check if implication is valid
@@ -55,6 +66,29 @@ template ModusPonens(){
    }
 
    verification<==success;
+}
+
+template IsZero() {
+  signal input in;
+  signal output out;
+
+  signal inv;
+
+  inv <-- in!=0 ? 1/in : 0;
+
+  out <== -in*inv +1;
+  in*out === 0;
+}
+
+template IsEqual() {
+    signal input in[2];
+    signal output out;
+
+    component isz = IsZero();
+
+    in[1] - in[0] ==> isz.in;
+
+    isz.out ==> out;
 }
 
 component main {public [step_in] }= BasicProof();
