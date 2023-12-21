@@ -26,11 +26,8 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
    //Added Part
    let proof_lines = read_proof("misc/basic_proof.txt");
    let encoded_statements = encode_statement(&proof_lines);
-   println!("{:?}", encoded_statements);
    let encoded_logic = encode_logic(&proof_lines);
-   println!("{:?}", encoded_logic);
    let encoded_reasoning = encode_reasoning(&proof_lines, &encoded_statements);
-   println!("{:?}", encoded_reasoning);
 
    let iteration_count = proof_lines.len();
 
@@ -40,63 +37,64 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
       private_input.insert("statement".to_string(), json!(encoded_statements[i]));
       private_input.insert("logic".to_string(), json!(encoded_logic[i]));
       private_input.insert("reason".to_string(), json!(encoded_reasoning[i]));
+
       private_inputs.push(private_input);
   }
 
   let start_public_input = [F::<G1>::from(1)];
 
-  //Added end
-   println!("Creating a RecursiveSNARK...");
-   let start = Instant::now();
-   let recursive_snark = create_recursive_circuit(
-       FileLocation::PathBuf(witness_generator_file),
-       r1cs,
-       private_inputs,
-       start_public_input.to_vec(),
-       &pp,
-   )
-   .unwrap();
-   println!("RecursiveSNARK creation took {:?}", start.elapsed());
-
-   let z0_secondary = [F::<G2>::from(0)];
-   println!("Verifying a RecursiveSNARK...");
-   let start = Instant::now();
-   let res = recursive_snark.verify(&pp, iteration_count, &start_public_input, &z0_secondary);
-   println!(
-       "RecursiveSNARK::verify: {:?}, took {:?}",
-       res,
-       start.elapsed()
-   );
-   assert!(res.is_ok());
-
-   println!("Generating a CompressedSNARK using Spartan with IPA-PC...");
-   let start = Instant::now();
-
-   let (pk, vk) = CompressedSNARK::<_, _, _, _, S<G1>, S<G2>>::setup(&pp).unwrap();
-   let res = CompressedSNARK::<_, _, _, _, S<G1>, S<G2>>::prove(&pp, &pk, &recursive_snark);
-   println!(
-       "CompressedSNARK::prove: {:?}, took {:?}",
-       res.is_ok(),
-       start.elapsed()
-   );
-   assert!(res.is_ok());
-   let compressed_snark = res.unwrap();
-
-   // verify the compressed SNARK
-   println!("Verifying a CompressedSNARK...");
-   let start = Instant::now();
-   let res = compressed_snark.verify(
-       &vk,
-       iteration_count,
-       start_public_input.to_vec(),
-       z0_secondary.to_vec(),
-   );
-   println!(
-       "CompressedSNARK::verify: {:?}, took {:?}",
-       res.is_ok(),
-       start.elapsed()
-   );
-   assert!(res.is_ok());
+    //Added end
+    println!("Creating a RecursiveSNARK...");
+    let start = Instant::now();
+    let recursive_snark = create_recursive_circuit(
+        FileLocation::PathBuf(witness_generator_file),
+        r1cs,
+        private_inputs,
+        start_public_input.to_vec(),
+        &pp,
+    )
+    .unwrap();
+    println!("RecursiveSNARK creation took {:?}", start.elapsed());
+ 
+    let z0_secondary = [F::<G2>::from(0)];
+    println!("Verifying a RecursiveSNARK...");
+    let start = Instant::now();
+    let res = recursive_snark.verify(&pp, iteration_count, &start_public_input, &z0_secondary);
+    println!(
+        "RecursiveSNARK::verify: {:?}, took {:?}",
+        res,
+        start.elapsed()
+    );
+    assert!(res.is_ok());
+ 
+    println!("Generating a CompressedSNARK using Spartan with IPA-PC...");
+    let start = Instant::now();
+ 
+    let (pk, vk) = CompressedSNARK::<_, _, _, _, S<G1>, S<G2>>::setup(&pp).unwrap();
+    let res = CompressedSNARK::<_, _, _, _, S<G1>, S<G2>>::prove(&pp, &pk, &recursive_snark);
+    println!(
+        "CompressedSNARK::prove: {:?}, took {:?}",
+        res.is_ok(),
+        start.elapsed()
+    );
+    assert!(res.is_ok());
+    let compressed_snark = res.unwrap();
+ 
+    // verify the compressed SNARK
+    println!("Verifying a CompressedSNARK...");
+    let start = Instant::now();
+    let res = compressed_snark.verify(
+        &vk,
+        iteration_count,
+        start_public_input.to_vec(),
+        z0_secondary.to_vec(),
+    );
+    println!(
+        "CompressedSNARK::verify: {:?}, took {:?}",
+        res.is_ok(),
+        start.elapsed()
+    );
+    assert!(res.is_ok());
    
 }
 
@@ -134,7 +132,6 @@ fn encode_statement(proof_lines: &Vec<Vec<String>>) -> Vec<[i64; 3]>{
       encoded_statements.push(statement);
 
    }
-
    encoded_statements
 }
 
@@ -204,8 +201,8 @@ fn read_proof(path: &str) -> Vec<Vec<String>> {
 }
 
 fn main() {
-   let circuit_filepath = "circuits/basic_proof/test.r1cs";
-   for witness_gen_filepath in ["circuits/basic_proof/test_cpp/test"] {
+   let circuit_filepath = "circuits/testing/test.r1cs";
+   for witness_gen_filepath in ["circuits/testing/test_cpp/test"] {
        run_test(circuit_filepath.to_string(), witness_gen_filepath.to_string());
    }
 
