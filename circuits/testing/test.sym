@@ -1,0 +1,17 @@
+1,1,1,main.step_out
+2,2,1,main.step_in
+3,-1,1,main.statement[0]
+4,-1,1,main.statement[1]
+5,-1,1,main.statement[2]
+6,-1,1,main.logic
+7,-1,1,main.reason[0]
+8,-1,1,main.reason[1]
+9,-1,1,main.reason[2]
+10,-1,1,main.reason[3]
+11,-1,1,main.reason[4]
+12,-1,1,main.reason[5]
+13,-1,0,main.calcTotal.sum
+14,-1,0,main.calcTotal.nums[0]
+15,-1,0,main.calcTotal.nums[1]
+16,-1,0,main.calcTotal.sums[0]
+17,-1,0,main.calcTotal.sums[1]

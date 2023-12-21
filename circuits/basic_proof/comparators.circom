@@ -28,7 +28,7 @@ template CalculateTotal(n) {
     signal input nums[n];
     signal output sum;
 
-    signal sums[n];
+    var sums[n];
     sums[0] <== nums[0];
 
     for (var i=1; i < n; i++) {
@@ -38,3 +38,9 @@ template CalculateTotal(n) {
     sum <== sums[n - 1];
 }
 
+   // calcTotal.nums[0] <== x;
+   // calcTotal.nums[1] <== 1;
+
+   // assert(calcTotal.sum>1);
+
+   // component temp = Temp();

@@ -26,8 +26,11 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
    //Added Part
    let proof_lines = read_proof("misc/basic_proof.txt");
    let encoded_statements = encode_statement(&proof_lines);
+   println!("{:?}", encoded_statements);
    let encoded_logic = encode_logic(&proof_lines);
+   println!("{:?}", encoded_logic);
    let encoded_reasoning = encode_reasoning(&proof_lines, &encoded_statements);
+   println!("{:?}", encoded_reasoning);
 
    let iteration_count = proof_lines.len();
 
@@ -64,7 +67,7 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
        res,
        start.elapsed()
    );
-   // assert!(res.is_ok());
+   assert!(res.is_ok());
 
    println!("Generating a CompressedSNARK using Spartan with IPA-PC...");
    let start = Instant::now();
