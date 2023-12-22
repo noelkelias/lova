@@ -11,11 +11,16 @@ template Test() {
    signal input step_in;
    signal output step_out;
 
+   var bob[3];
+   // for (var i = 0; i < 3; i++){
+   //    bob[i] = statement[i];
+   // }
+   bob = statement;
 
    //Comments
-   var x = statement[0] + step_in;
-   x += statement[1];
-   x += statement[2];
+   var x = step_in + bob[0];
+   x += bob[1];
+   x += bob[2];
    x += logic;
 
    for (var i = 0; i < 6; i++){
@@ -38,9 +43,11 @@ template Test() {
    assert(temp.out ==1);
 
    component temp2 = ModusPonens();
-   for (var i = 0; i < 3; i++){
-      temp2.statement[i] <== 1;
-   }
+   // var bob[3];
+   // for (var i = 0; i < 3; i++){
+   //    bob[i] = 1;
+   // }
+   temp2.statement <== [1,1,1];
 
    for (var i = 0; i < 6; i++){
       temp2.reason[i] <== 1;
