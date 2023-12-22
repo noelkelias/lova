@@ -24,9 +24,32 @@ template Test() {
 
    //Comments
    component calcTotal = CalculateTotal(2);
+   component zerCheck = IsZeroT();
+   zerCheck.in <== 0;
+   assert(zerCheck.out==1);
+
+   component eqCheck = IsEqualT();
+   eqCheck.in[0] <== 1;
+   eqCheck.in[1] <== 1;
+
+   assert(zerCheck.out==1);
+
+   component temp = Hypothesis();
+   assert(temp.out ==1);
+
+   component temp2 = ModusPonens();
+   for (var i = 0; i < 3; i++){
+      temp2.statement[i] <== 1;
+   }
+
+   for (var i = 0; i < 6; i++){
+      temp2.reason[i] <== 1;
+   }   
+
+   assert(temp2.out < 10);
 
    //Comments
-   calcTotal.nums[0] <== x;
+   calcTotal.nums[0] <== 1;
    calcTotal.nums[1] <== 1;
 
    assert(calcTotal.sum>1);

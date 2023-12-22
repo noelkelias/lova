@@ -38,3 +38,24 @@ template CalculateTotal(n) {
     sum <== sums[n - 1];
 }
 
+template IsZeroT() {
+    signal input in;
+    signal output out;
+
+    signal inv;
+
+    inv <-- in!=0 ? 1/in : 0;
+
+    out <== -in*inv +1;
+}
+
+template IsEqualT() {
+    signal input in[2];
+    signal output out;
+
+    component isz = IsZeroT();
+
+    in[1] - in[0] ==> isz.in;
+
+    isz.out ==> out;
+}

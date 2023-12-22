@@ -17,7 +17,7 @@ template ModusPonens(){
    var success = 3;
 
    //Check if A is present and formatted correctly
-   component aEqCheck = IsEqual();
+   component aEqCheck = IsEqualT();
    aEqCheck.in[0] <== reason[0];
    aEqCheck.in[1] <== reason[3];
 
@@ -25,22 +25,22 @@ template ModusPonens(){
 
    //Check if implication is valid
    //B is in first reason with >
-   component bCheck1 = IsEqual();
+   component bCheck1 = IsEqualT();
    bCheck1.in[0] <== reason[1];
    bCheck1.in[1] <== statement[0];
 
-   component opCheck1 = IsEqual();
+   component opCheck1 = IsEqualT();
    opCheck1.in[0] <== reason[2];
    opCheck1.in[1] <== 4; 
 
    calcTotal.nums[1] <== bCheck1.out * opCheck1.out;
 
    //B is second reason with >
-   component bCheck2 = IsEqual();
+   component bCheck2 = IsEqualT();
    bCheck2.in[0] <== reason[4];
    bCheck2.in[1] <== statement[0];
 
-   component opCheck2 = IsEqual();
+   component opCheck2 = IsEqualT();
    opCheck2.in[0] <== reason[5];
    opCheck2.in[1] <== 4; 
 
