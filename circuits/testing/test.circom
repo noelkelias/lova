@@ -13,7 +13,7 @@ template Test() {
 
 
    //Comments
-   var x = statement[0]+step_in;
+   var x = statement[0] + step_in;
    x += statement[1];
    x += statement[2];
    x += logic;
@@ -24,15 +24,15 @@ template Test() {
 
    //Comments
    component calcTotal = CalculateTotal(2);
-   component zerCheck = IsZeroT();
+   component zerCheck = IsZero();
    zerCheck.in <== 0;
    assert(zerCheck.out==1);
 
-   component eqCheck = IsEqualT();
-   eqCheck.in[0] <== 1;
-   eqCheck.in[1] <== 1;
+   component eqCheck = IsEqual();
+   eqCheck.in[0] <== statement[0];
+   eqCheck.in[1] <== statement[0];
 
-   assert(zerCheck.out==1);
+   assert(eqCheck.out==1);
 
    component temp = Hypothesis();
    assert(temp.out ==1);
