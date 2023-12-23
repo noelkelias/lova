@@ -33,19 +33,19 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
    println!("{:?}", encoded_reasoning);
 
 
-   let iteration_count = proof_lines.len();
+   let iteration_count = 1;
 
    let mut private_inputs = Vec::new();
    for i in 0..iteration_count {
       let mut private_input = HashMap::new();
-      private_input.insert("statement".to_string(), json!(encoded_statements[i]));
+      // private_input.insert("statement".to_string(), json!(encoded_statements[i]));
       private_input.insert("logic".to_string(), json!(encoded_logic[i]));
-      private_input.insert("reason".to_string(), json!(encoded_reasoning[i]));
+      // private_input.insert("reason".to_string(), json!(encoded_reasoning[i]));
 
       private_inputs.push(private_input);
   }
 
-  let start_public_input = [F::<G1>::from(1)];
+  let start_public_input = [F::<G1>::from(2)];
 
     //Added end
     println!("Creating a RecursiveSNARK...");
