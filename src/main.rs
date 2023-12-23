@@ -33,12 +33,12 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
    println!("{:?}", encoded_reasoning);
 
 
-   let iteration_count = 1;
+   let iteration_count = 3;
 
    let mut private_inputs = Vec::new();
    for i in 0..iteration_count {
       let mut private_input = HashMap::new();
-      // private_input.insert("statement".to_string(), json!(encoded_statements[i]));
+      private_input.insert("statement".to_string(), json!(encoded_statements[i]));
       private_input.insert("logic".to_string(), json!(encoded_logic[i]));
       // private_input.insert("reason".to_string(), json!(encoded_reasoning[i]));
 
