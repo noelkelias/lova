@@ -32,8 +32,15 @@ template ModusPonens(){
    var success = -3;
 
    calcTotal.nums[0] <== statement[0] - success;
-   calcTotal.nums[1] <== statement[1]*success;
+   calcTotal.nums[1] <== statement[1]* success;
    calcTotal.nums[2] <== statement[2] - success;
 
    out <== calcTotal.sum;
+}
+
+template TempSumming(multVal){
+   signal input vals[2];
+   signal output out;
+
+   out <== vals[0] * vals[1];
 }

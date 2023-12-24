@@ -32,6 +32,8 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
    let encoded_reasoning = encode_reasoning(&proof_lines, &encoded_statements);
    println!("{:?}", encoded_reasoning);
 
+   let encoded_logic: [[i32; 2]; 3] = [[0, 0], [1, 0], [0, 1]];
+
 
    let iteration_count = 3;
 
