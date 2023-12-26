@@ -14,18 +14,17 @@ use serde_json::json;
 //Encode the statement into a vector of arrays 
 fn encode_statement(proof_lines: &Vec<Vec<String>>) -> Vec<[i64; 3]>{
    let mut statement_dict = HashMap::from([
-       ("!", 1),
-      ("&", 2),
-      ("|", 3),
-      (">",4)]);   
+      ("&", 1),
+      ("|", 2),
+      (">",3)]);   
 
-   let symbols = ["!", "&", "|", ">"];
-   let mut count:i64 = 5;
+   let symbols = ["&", "|", ">"];
+   let mut count:i64 = 4;
 
    let mut encoded_statements = Vec::new();
    for line in proof_lines{
       let mut statement: [i64; 3] = [0; 3];
-      let mut raw_statement = line[0].split(&['!', '&','|','>'][..]).collect::<Vec<_>>();
+      let mut raw_statement = line[0].split(&['&','|','>'][..]).collect::<Vec<_>>();
 
       for symbol in symbols{
          if line[0].contains(&symbol.to_owned()){
@@ -45,17 +44,17 @@ fn encode_statement(proof_lines: &Vec<Vec<String>>) -> Vec<[i64; 3]>{
       encoded_statements.push(statement);
 
    }
-
    encoded_statements
 }
 
 //Encode Logic steps
 fn encode_logic(proof_lines: &Vec<Vec<String>>) -> Vec<i64>{
    let mut statement_dict = HashMap::from([
-       ("hypothesis", 1),
-      ("addition", 2),
-      ("conjunction",3),
-      ("simplification", 4),
+       ("hypothesis", 0),
+      ("addition", 1),
+      ("conjunction",2),
+      ("simplification", 3),
+      ("resolution", 4),
       ("modusponens", 5),
       ("modustollens", 6),
       ("hypotheticalsyllogism",7),
@@ -113,7 +112,6 @@ fn read_proof(path: &str) -> Vec<Vec<String>> {
 
   result
 }
-
 
 fn main() {
    type G1 = pasta_curves::pallas::Point;

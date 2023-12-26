@@ -20,102 +20,209 @@ template CalculateTotal(n) {
 
 template Hypothesis(){
    signal input statement[3];
-   signal output out;
+   signal input reason[6];
+   signal output out[3];
 
-   var sum = 0;
+   //Test1
+   var statementSum = 0;
    for (var i = 0; i < 3; i++){
-      sum += statement[i];
+      statementSum += statement[i];
    }
+   //Test2
+   var reasonSum = 0;
 
-   out <== sum;
+   //Test3
+   var proofSum = statementSum;
+
+   out <== [statementSum, reasonSum, proofSum];
 }
 
-template ModusPonens(){
+template ModusPonens(arrow){
+   signal input statement[3];
    signal input reason[6];
-   signal output out;
+   signal output out[3];
 
-   var sum = 0;
-   sum += reason[0]*2;
-   sum += reason[4]*2;
-   sum += 4;
+   //Test1
+   var statementSum = reason[4];
 
-   out <== sum;
+   //Test2
+   var reasonSum = 0;
+   reasonSum += reason[0]*2;
+   reasonSum += statement[0];
+   reasonSum += arrow;
+
+   //Test3
+   var proofSum = 0;
+   proofSum += reason[3]*2;
+   proofSum += reason[4]*2;
+   proofSum += arrow;
+
+   out <== [statementSum, reasonSum, proofSum];
 }
 
-template ModusTollens(){
-   signal output out;
-
-   out <== 4;
-}
-
-template DisjunctiveSyllogism(){
+template ModusTollens(arrow){
    signal input statement[3];
-   signal output out;
-
-   var sum = 0;
-   sum += statement[0]*2;
-   sum += 2;
-
-   out <== sum;
-}
-
-template HypotheticalSyllogism(){
    signal input reason[6];
-   signal output out;
+   signal output out[3];
 
-   var sum = 0;
-   sum += reason[0]*2;
-   sum += reason[1]*2;
-   sum += reason[4]*2;
-   sum += 4*3;
+   //Test1
+   var statementSum = statement[0];
 
-   out <== sum;
+   //Test2
+   var reasonSum = 0;
+   reasonSum += reason[3];
+   reasonSum += arrow;
+
+   //Test3
+   var proofSum = arrow;
+
+   out <== [statementSum, reasonSum, proofSum];
 }
 
-template Addition(){
+template DisjunctiveSyllogism(or){
    signal input statement[3];
-   signal output out;
-
-   var sum = 0;
-   sum += statement[0]*2;
-   sum += statement[1];
-   sum += 3;
-
-   out <== sum;
-}
-
-template Simplification(){
    signal input reason[6];
-   signal output out;
+   signal output out[3];
 
-   var sum = 0;
-   sum += reason[0]*2;
-   sum += reason[1];
-   sum += 2;
+   //Test1
+   var statementSum = reason[2];
 
-   out <== sum;
+   //Test2
+   var reasonSum = 0;
+   reasonSum += statement[0];
+   reasonSum += or;
+
+   //Test3
+   var proofSum = 0;
+   proofSum += reason[1] *2;
+   proofSum += or;
+
+   out <== [statementSum, reasonSum, proofSum];
 }
 
-template Conjunction(){
+template HypotheticalSyllogism(arrow){
    signal input statement[3];
-   signal output out;
+   signal input reason[6];
+   signal output out[3];
 
-   var sum = 0;
-   sum += statement[0]*2;
-   sum += statement[1]*2;
-   sum += 2;
+   //Test1
+   var statementSum = 0;
+   statementSum += reason[0];
+   statementSum += reason[4];
+   statementSum += arrow;
 
-   out <== sum;
+   //Test2
+   var reasonSum = 0;
+   reasonSum += statement[0];
+   reasonSum += statement[1];
+   reasonSum += reason[1]*2;
+   reasonSum += arrow*2;
+
+   //Test3
+   var proofSum = 0;
+   proofSum += statement[0]*2;
+   proofSum += reason[1]*2;
+   proofSum += reason[4]*2;
+   proofSum += arrow*3;
+
+   out <== [statementSum, reasonSum, proofSum];
 }
 
-template Resolution(){
+template Addition(or){
    signal input statement[3];
-   signal output out;
+   signal input reason[6];
+   signal output out[3];
 
-   var sum = 0;
-   sum += statement[0]*2;
-   sum += statement[1]*2;
-   sum += 3*4;
+   //Test1
+   var statementSum = 0;
+   statementSum += reason[0];
+   statementSum += or;
+   statementSum += statement[1];
 
-   out <== sum;
+   //Test2
+   var reasonSum = 0;
+   reasonSum += statement[0];
+
+   //Test3
+   var proofSum = 0;
+   proofSum += reason[0]*2;
+   proofSum += statement[1];
+   proofSum += or;
+
+   out <== [statementSum, reasonSum, proofSum];
+}
+
+template Simplification(and){
+   signal input statement[3];
+   signal input reason[6];
+   signal output out[3];
+
+   //Test1
+   var statementSum = 0;
+   statementSum += reason[0];
+
+   //Test2
+   var reasonSum = 0;
+   reasonSum += statement[0];
+   reasonSum += reason[1];
+   reasonSum += and;
+
+   //Test3
+   var proofSum = 0;
+   proofSum += statement[0]*2;
+   proofSum += reason[1];
+   proofSum += and;
+
+   out <== [statementSum, reasonSum, proofSum];
+}
+
+template Conjunction(and){
+   signal input statement[3];
+   signal input reason[6];
+   signal output out[3];
+
+   //Test1
+   var statementSum = 0;
+   statementSum += reason[0];
+   statementSum += reason[3];
+   statementSum += and;
+
+   //Test2
+   var reasonSum = 0;
+   reasonSum += statement[0];
+   reasonSum += statement[1];
+
+   //Test3
+   var proofSum = 0;
+   proofSum += statement[0]*2;
+   proofSum += reason[3]*2;
+   proofSum += and;
+
+   out <== [statementSum, reasonSum, proofSum];
+}
+
+template Resolution(or){
+   signal input statement[3];
+   signal input reason[6];
+   signal output out[3];
+
+   //Test1
+   var statementSum = 0;
+   statementSum += reason[1];
+   statementSum += reason[4];
+   statementSum += or;
+
+   //Test2
+   var reasonSum = 0;
+   reasonSum += statement[0];
+   reasonSum += statement[1];
+   reasonSum += or;
+
+   //Test3
+   var proofSum = 0;
+   proofSum += statement[0]*2;
+   proofSum += reason[1]*2;
+   proofSum += or*4;
+
+   out <== [statementSum, reasonSum, proofSum];
 }

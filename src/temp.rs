@@ -26,10 +26,17 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
    //Added Part
    let proof_lines = read_proof("misc/basic_proof.txt");
    let encoded_statements = encode_statement(&proof_lines);
+   println!("{:?}", encoded_statements);
    let encoded_logic = encode_logic(&proof_lines);
+   println!("{:?}", encoded_logic);
    let encoded_reasoning = encode_reasoning(&proof_lines, &encoded_statements);
+   println!("{:?}", encoded_reasoning);
 
-   let iteration_count = proof_lines.len();
+   // let encoded_logic: [[i32; 3]; 3] = [[0, 0, 0], [1, 0, 0], [0, 1, 1]];
+   // let encoded_logic: [i32; 3] = [0,0,1];
+
+
+   let iteration_count = 3;
 
    let mut private_inputs = Vec::new();
    for i in 0..iteration_count {
@@ -41,7 +48,7 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
       private_inputs.push(private_input);
   }
 
-  let start_public_input = [F::<G1>::from(1)];
+  let start_public_input = [F::<G1>::from(2)];
 
     //Added end
     println!("Creating a RecursiveSNARK...");
@@ -101,18 +108,17 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
 //Encode the statement into a vector of arrays 
 fn encode_statement(proof_lines: &Vec<Vec<String>>) -> Vec<[i64; 3]>{
    let mut statement_dict = HashMap::from([
-       ("!", 1),
-      ("&", 2),
-      ("|", 3),
-      (">",4)]);   
+      ("&", 1),
+      ("|", 2),
+      (">",3)]);   
 
-   let symbols = ["!", "&", "|", ">"];
-   let mut count:i64 = 5;
+   let symbols = ["&", "|", ">"];
+   let mut count:i64 = 4;
 
    let mut encoded_statements = Vec::new();
    for line in proof_lines{
       let mut statement: [i64; 3] = [0; 3];
-      let mut raw_statement = line[0].split(&['!', '&','|','>'][..]).collect::<Vec<_>>();
+      let mut raw_statement = line[0].split(&['&','|','>'][..]).collect::<Vec<_>>();
 
       for symbol in symbols{
          if line[0].contains(&symbol.to_owned()){
@@ -138,10 +144,11 @@ fn encode_statement(proof_lines: &Vec<Vec<String>>) -> Vec<[i64; 3]>{
 //Encode Logic steps
 fn encode_logic(proof_lines: &Vec<Vec<String>>) -> Vec<i64>{
    let mut statement_dict = HashMap::from([
-       ("hypothesis", 1),
-      ("addition", 2),
-      ("conjunction",3),
-      ("simplification", 4),
+       ("hypothesis", 0),
+      ("addition", 1),
+      ("conjunction",2),
+      ("simplification", 3),
+      ("resolution", 4),
       ("modusponens", 5),
       ("modustollens", 6),
       ("hypotheticalsyllogism",7),

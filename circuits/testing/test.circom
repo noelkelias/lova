@@ -10,63 +10,123 @@ template Test() {
    signal input reason[6];
    signal output step_out;
 
-   var reasoningSums[9];
+   //Logic
+   var numLogics = 9;
+   var lineSums[numLogics*3];
+
+   //Symbols
+   var and = 1;
+   var or = 2;
+   var arrow = 3;
 
    //Hypothesis 
+   var hyp_index = 0;
    component hyp = Hypothesis();
    hyp.statement <== statement;
-   reasoningSums[0] = hyp.out;
+   hyp.reason <== reason;
+
+   lineSums[hyp_index] = hyp.out[0];
+   lineSums[hyp_index+numLogics] = hyp.out[1];
+   lineSums[hyp_index+numLogics*2] = hyp.out[2];
 
    //Addition 
-   component add = Addition();
+   var add_index = 1;
+   component add = Addition(or);
    add.statement <== statement;
-   reasoningSums[1] = add.out;
+   add.reason <== reason;
+
+   lineSums[add_index] = add.out[0];
+   lineSums[add_index+numLogics] = add.out[1];
+   lineSums[add_index+numLogics*2] = add.out[2];
 
    //Conjunction 
-   component conj = Conjunction();
+   var conj_index = 2;
+   component conj = Conjunction(and);
    conj.statement <== statement;
-   reasoningSums[2] = conj.out;
+   conj.reason <== reason;
+
+   lineSums[conj_index] = conj.out[0];
+   lineSums[conj_index+numLogics] = conj.out[1];
+   lineSums[conj_index+numLogics*2] = conj.out[2];
 
    //Simplification 
-   component simp = Simplification();
+   var simp_index = 3;
+   component simp = Simplification(and);
+   simp.statement <== statement;
    simp.reason <== reason;
-   reasoningSums[3] = simp.out;
+
+   lineSums[simp_index] = simp.out[0];
+   lineSums[simp_index+numLogics] = simp.out[1];
+   lineSums[simp_index+numLogics*2] = simp.out[2];
 
    //Resolution 
-   component res = Resolution();
+   var res_index = 4;
+   component res = Resolution(or);
    res.statement <== statement;
-   reasoningSums[4] = simp.out;
+   res.reason <== reason;
+
+   lineSums[res_index] = simp.out[0];
+   lineSums[res_index+numLogics] = simp.out[1];
+   lineSums[res_index+numLogics*2] = simp.out[2];
 
    //Modus Ponens
-   component mp = ModusPonens();
+   var mp_index = 5;
+   component mp = ModusPonens(arrow);
+   mp.statement <== statement;
    mp.reason <== reason;
-   reasoningSums[5] = mp.out;
+
+   lineSums[mp_index] = mp.out[0];
+   lineSums[mp_index+numLogics] = mp.out[1];
+   lineSums[mp_index+numLogics*2] = mp.out[2];
 
    //Modus Tollens
-   component mt = ModusTollens();
-   reasoningSums[6] = mt.out;
+   var mt_index = 6;
+   component mt = ModusTollens(arrow);
+   mt.statement <== statement;
+   mt.reason <== reason;
+
+   lineSums[mt_index] = mt.out[0];
+   lineSums[mt_index+numLogics] = mt.out[1];
+   lineSums[mt_index+numLogics*2] = mt.out[2];
 
    //Hypothetical Syllogism
-   component hs = HypotheticalSyllogism();
+   var hs_index = 7;
+   component hs = HypotheticalSyllogism(arrow);
+   hs.statement <== statement;
    hs.reason <== reason;
-   reasoningSums[7] = hs.out;
+
+   lineSums[hs_index] = hs.out[0];
+   lineSums[hs_index+numLogics] = hs.out[1];
+   lineSums[hs_index+numLogics*2] = hs.out[2];
 
    //Disjunctive Syllogism
-   component ds = DisjunctiveSyllogism();
+   var ds_index = 8;
+   component ds = DisjunctiveSyllogism(or);
    ds.statement <== statement;
-   reasoningSums[8] = ds.out;
+   ds.reason <== reason;
 
-   //Calculate sum across all statement/reason
-   var proofSum = 0;
+   lineSums[ds_index] = ds.out[0];
+   lineSums[ds_index+numLogics] = ds.out[1];
+   lineSums[ds_index+numLogics*2] = ds.out[2];
+
+
+   //Test #1 - Sum across statement
+   var statementSum = 0;
    for (var i = 0; i < 3; i++){
-      proofSum += statement[i];
+      statementSum += statement[i];
    }
+   assert (statementSum == lineSums[logic]);
 
+   //Test #2 - Sum across reasons
+   var reasonSum = 0;
    for (var i = 0; i < 6; i++){
-      proofSum += reason[i];
+      reasonSum += reason[i];
    }
+   assert (reasonSum == lineSums[logic+numLogics]);
 
-   assert (proofSum == reasoningSums[logic]);
+   //Test #3 - Calculate sum across all statement/reason
+   var proofSum = statementSum+reasonSum;
+   assert (proofSum == lineSums[logic+numLogics*2]);
 
    step_out <== proofSum;
 }

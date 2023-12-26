@@ -108,18 +108,17 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
 //Encode the statement into a vector of arrays 
 fn encode_statement(proof_lines: &Vec<Vec<String>>) -> Vec<[i64; 3]>{
    let mut statement_dict = HashMap::from([
-       ("!", 1),
-      ("&", 2),
-      ("|", 3),
-      (">",4)]);   
+      ("&", 1),
+      ("|", 2),
+      (">",3)]);   
 
-   let symbols = ["!", "&", "|", ">"];
-   let mut count:i64 = 5;
+   let symbols = ["&", "|", ">"];
+   let mut count:i64 = 4;
 
    let mut encoded_statements = Vec::new();
    for line in proof_lines{
       let mut statement: [i64; 3] = [0; 3];
-      let mut raw_statement = line[0].split(&['!', '&','|','>'][..]).collect::<Vec<_>>();
+      let mut raw_statement = line[0].split(&['&','|','>'][..]).collect::<Vec<_>>();
 
       for symbol in symbols{
          if line[0].contains(&symbol.to_owned()){
