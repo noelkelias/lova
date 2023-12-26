@@ -1,5 +1,5 @@
-use std::{collections::HashMap, env::current_dir, time::Instant, fs::read_to_string};
-
+use std::fs::read_to_string;
+use std::{collections::HashMap, env::current_dir, time::Instant};
 use nova_scotia::{
     circom::reader::load_r1cs, create_public_params, create_recursive_circuit, FileLocation, F, S,
 };
@@ -10,100 +10,6 @@ use nova_snark::{
 };
 use serde_json::json;
 
-
-fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
-   type G1 = pasta_curves::pallas::Point;
-   type G2 = pasta_curves::vesta::Point;
-
-   let root = current_dir().unwrap();
-
-   let circuit_file = root.join(circuit_filepath);
-   let r1cs = load_r1cs::<G1, G2>(&FileLocation::PathBuf(circuit_file));
-   let witness_generator_file = root.join(witness_gen_filepath);
-
-   let pp: PublicParams<G1, G2, _, _> = create_public_params(r1cs.clone());
-
-   //Added Part
-   let proof_lines = read_proof("misc/basic_proof.txt");
-   let encoded_statements = encode_statement(&proof_lines);
-   println!("{:?}", encoded_statements);
-   let encoded_logic = encode_logic(&proof_lines);
-   println!("{:?}", encoded_logic);
-   let encoded_reasoning = encode_reasoning(&proof_lines, &encoded_statements);
-   println!("{:?}", encoded_reasoning);
-
-   // let encoded_logic: [[i32; 3]; 3] = [[0, 0, 0], [1, 0, 0], [0, 1, 1]];
-   // let encoded_logic: [i32; 3] = [0,0,1];
-
-
-   let iteration_count = 3;
-
-   let mut private_inputs = Vec::new();
-   for i in 0..iteration_count {
-      let mut private_input = HashMap::new();
-      private_input.insert("statement".to_string(), json!(encoded_statements[i]));
-      private_input.insert("logic".to_string(), json!(encoded_logic[i]));
-      private_input.insert("reason".to_string(), json!(encoded_reasoning[i]));
-
-      private_inputs.push(private_input);
-  }
-
-  let start_public_input = [F::<G1>::from(2)];
-
-    //Added end
-    println!("Creating a RecursiveSNARK...");
-    let start = Instant::now();
-    let recursive_snark = create_recursive_circuit(
-        FileLocation::PathBuf(witness_generator_file),
-        r1cs,
-        private_inputs,
-        start_public_input.to_vec(),
-        &pp,
-    )
-    .unwrap();
-    println!("RecursiveSNARK creation took {:?}", start.elapsed());
- 
-    let z0_secondary = [F::<G2>::from(0)];
-    println!("Verifying a RecursiveSNARK...");
-    let start = Instant::now();
-    let res = recursive_snark.verify(&pp, iteration_count, &start_public_input, &z0_secondary);
-    println!(
-        "RecursiveSNARK::verify: {:?}, took {:?}",
-        res,
-        start.elapsed()
-    );
-    assert!(res.is_ok());
- 
-    println!("Generating a CompressedSNARK using Spartan with IPA-PC...");
-    let start = Instant::now();
- 
-    let (pk, vk) = CompressedSNARK::<_, _, _, _, S<G1>, S<G2>>::setup(&pp).unwrap();
-    let res = CompressedSNARK::<_, _, _, _, S<G1>, S<G2>>::prove(&pp, &pk, &recursive_snark);
-    println!(
-        "CompressedSNARK::prove: {:?}, took {:?}",
-        res.is_ok(),
-        start.elapsed()
-    );
-    assert!(res.is_ok());
-    let compressed_snark = res.unwrap();
- 
-    // verify the compressed SNARK
-    println!("Verifying a CompressedSNARK...");
-    let start = Instant::now();
-    let res = compressed_snark.verify(
-        &vk,
-        iteration_count,
-        start_public_input.to_vec(),
-        z0_secondary.to_vec(),
-    );
-    println!(
-        "CompressedSNARK::verify: {:?}, took {:?}",
-        res.is_ok(),
-        start.elapsed()
-    );
-    assert!(res.is_ok());
-   
-}
 
 //Encode the statement into a vector of arrays 
 fn encode_statement(proof_lines: &Vec<Vec<String>>) -> Vec<[i64; 3]>{
@@ -208,10 +114,34 @@ fn read_proof(path: &str) -> Vec<Vec<String>> {
 }
 
 fn main() {
-   let circuit_filepath = "circuits/testing/test.r1cs";
-   for witness_gen_filepath in ["circuits/testing/test_cpp/test"] {
-       run_test(circuit_filepath.to_string(), witness_gen_filepath.to_string());
-   }
+   type G1 = pasta_curves::pallas::Point;
+   type G2 = pasta_curves::vesta::Point;
 
+   // --snip--
+   let proof_lines = read_proof("misc/basic_proof.txt");
+   println!("{:?}", proof_lines);
+
+   let encoded_statements = encode_statement(&proof_lines);
+   println!("{:?}", encoded_statements);
+
+   let encoded_logic = encode_logic(&proof_lines);
+   println!("{:?}", encoded_logic);
+
+   let encoded_reasoning = encode_reasoning(&proof_lines, &encoded_statements);
+   println!("{:?}", encoded_reasoning);
+   
+
+   let mut private_inputs = Vec::new();
+   for i in 0..proof_lines.len() {
+      let mut private_input = HashMap::new();
+      private_input.insert("statement".to_string(), json!(encoded_statements[i]));
+      private_input.insert("logic".to_string(), json!(encoded_logic[i]));
+      private_input.insert("reason".to_string(), json!(encoded_reasoning[i]));
+      private_inputs.push(private_input);
+  }
+
+  let json = serde_json::to_string(&private_inputs);
+  println!("{:?}", json);
+
+  let mut start_public_input = [F::<G1>::from(1)];
 }
-
