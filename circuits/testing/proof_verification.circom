@@ -19,61 +19,103 @@ template CalculateTotal(n) {
 }
 
 template Hypothesis(){
-   signal output out;
-   out <== 1;
-}
-
-template ModusPonens(){
    signal input statement[3];
-   signal input reason[6];
-
    signal output out;
 
    var sum = 0;
    for (var i = 0; i < 3; i++){
-      sum += statement[0];
-   }
-
-   for (var i = 0; i < 6; i++){
-      sum += reason[0];
-   }
-
-   out <== sum/2;
-}
-
-template ModusTollens(){
-   signal input statement[3];
-   signal input reason[6];
-
-   signal output out;
-
-   var sum = 0;
-   for (var i = 0; i < 3; i++){
-      sum += statement[0];
-   }
-
-   for (var i = 0; i < 6; i++){
-      sum += reason[0];
+      sum += statement[i];
    }
 
    out <== sum;
+}
+
+template ModusPonens(){
+   signal input reason[6];
+   signal output out;
+
+   var sum = 0;
+   sum += reason[0]*2;
+   sum += reason[4]*2;
+   sum += 4;
+
+   out <== sum;
+}
+
+template ModusTollens(){
+   signal output out;
+
+   out <== 4;
 }
 
 template DisjunctiveSyllogism(){
    signal input statement[3];
-   signal input reason[6];
-
    signal output out;
 
    var sum = 0;
-   for (var i = 0; i < 3; i++){
-      sum += statement[0];
-   }
-
-   for (var i = 0; i < 6; i++){
-      sum += reason[0];
-   }
+   sum += statement[0]*2;
+   sum += 2;
 
    out <== sum;
 }
 
+template HypotheticalSyllogism(){
+   signal input reason[6];
+   signal output out;
+
+   var sum = 0;
+   sum += reason[0]*2;
+   sum += reason[1]*2;
+   sum += reason[4]*2;
+   sum += 4*3;
+
+   out <== sum;
+}
+
+template Addition(){
+   signal input statement[3];
+   signal output out;
+
+   var sum = 0;
+   sum += statement[0]*2;
+   sum += statement[1];
+   sum += 3;
+
+   out <== sum;
+}
+
+template Simplification(){
+   signal input reason[6];
+   signal output out;
+
+   var sum = 0;
+   sum += reason[0]*2;
+   sum += reason[1];
+   sum += 2;
+
+   out <== sum;
+}
+
+template Conjunction(){
+   signal input statement[3];
+   signal output out;
+
+   var sum = 0;
+   sum += statement[0]*2;
+   sum += statement[1]*2;
+   sum += 2;
+
+   out <== sum;
+}
+
+template Resolution(){
+   signal input statement[3];
+   signal output out;
+
+   var sum = 0;
+   sum += statement[0]*2;
+   sum += statement[1]*2;
+   sum += 3*4;
+
+   out <== sum;
+}

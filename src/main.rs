@@ -33,6 +33,7 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
    println!("{:?}", encoded_reasoning);
 
    // let encoded_logic: [[i32; 3]; 3] = [[0, 0, 0], [1, 0, 0], [0, 1, 1]];
+   // let encoded_logic: [i32; 3] = [0,0,1];
 
 
    let iteration_count = 3;
@@ -144,10 +145,11 @@ fn encode_statement(proof_lines: &Vec<Vec<String>>) -> Vec<[i64; 3]>{
 //Encode Logic steps
 fn encode_logic(proof_lines: &Vec<Vec<String>>) -> Vec<i64>{
    let mut statement_dict = HashMap::from([
-       ("hypothesis", 1),
-      ("addition", 2),
-      ("conjunction",3),
-      ("simplification", 4),
+       ("hypothesis", 0),
+      ("addition", 1),
+      ("conjunction",2),
+      ("simplification", 3),
+      ("resolution", 4),
       ("modusponens", 5),
       ("modustollens", 6),
       ("hypotheticalsyllogism",7),
