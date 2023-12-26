@@ -5,41 +5,34 @@ include "proof_verification.circom";
 
 template Test() {
    signal input step_in;
-   signal input logic[2];
+   signal input logic[3];
    signal input statement[3];
-   // signal input reason[6];
+   signal input reason[6];
    signal output step_out;
 
-   assert (step_in < 1000);
+   component proofSum = CalculateTotal(3);
 
-   component temp = CalculateTotal(2);
+   var bob [4] = [1,2,3,4];
+   //Hypothesis 
    component hyp = Hypothesis();
 
-   temp.nums[0] <== 2;
-   temp.nums[1] <== 2;
+   //Modus Ponens
+   component mp = ModusPonens();
+   mp.statement <== statement;
+   mp.reason <== reason;
 
-   var x = temp.sum + hyp.out;
+   //Modus Tollens
+   component mt = ModusTollens();
+   mt.statement <== statement;
+   mt.reason <== reason;
 
-   component mpTest = ModusPonens();
-   mpTest.statement <== statement;
+   proofSum.nums[0] <== hyp.out + logic[0];
+   proofSum.nums[1] <== mp.out + logic[1];
+   proofSum.nums[2] <== mp.out + logic[2];
 
-   component mpTest2 = ModusPonens();
-   mpTest2.statement <== statement;
+   assert (proofSum.sum > reason[logic[0]+1]);
 
-   x += mpTest.out;
-   x += mpTest2.out;
-
-   var y = mpTest.out + logic[1];
-   var z = mpTest2.out - logic[0];
-
-   var t = z+y;
-   var l = t+x;
-
-   component summing = CalculateTotal(2);
-   summing.nums[0] <== l+logic[0];
-   summing.nums[1] <== l+logic[1];
-
-   step_out <== summing.sum;
+   step_out <== proofSum.sum;
 }
 
 component main {public [step_in] }= Test();

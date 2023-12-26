@@ -32,7 +32,7 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
    let encoded_reasoning = encode_reasoning(&proof_lines, &encoded_statements);
    println!("{:?}", encoded_reasoning);
 
-   let encoded_logic: [[i32; 2]; 3] = [[0, 0], [1, 0], [0, 1]];
+   // let encoded_logic: [[i32; 3]; 3] = [[0, 0, 0], [1, 0, 0], [0, 1, 1]];
 
 
    let iteration_count = 3;
@@ -42,7 +42,7 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
       let mut private_input = HashMap::new();
       private_input.insert("statement".to_string(), json!(encoded_statements[i]));
       private_input.insert("logic".to_string(), json!(encoded_logic[i]));
-      // private_input.insert("reason".to_string(), json!(encoded_reasoning[i]));
+      private_input.insert("reason".to_string(), json!(encoded_reasoning[i]));
 
       private_inputs.push(private_input);
   }

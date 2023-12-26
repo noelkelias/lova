@@ -25,22 +25,55 @@ template Hypothesis(){
 
 template ModusPonens(){
    signal input statement[3];
+   signal input reason[6];
+
    signal output out;
 
-   component calcTotal = CalculateTotal(3);
+   var sum = 0;
+   for (var i = 0; i < 3; i++){
+      sum += statement[0];
+   }
 
-   var success = -3;
+   for (var i = 0; i < 6; i++){
+      sum += reason[0];
+   }
 
-   calcTotal.nums[0] <== statement[0] - success;
-   calcTotal.nums[1] <== statement[1]* success;
-   calcTotal.nums[2] <== statement[2] - success;
-
-   out <== calcTotal.sum;
+   out <== sum/2;
 }
 
-template TempSumming(multVal){
-   signal input vals[2];
+template ModusTollens(){
+   signal input statement[3];
+   signal input reason[6];
+
    signal output out;
 
-   out <== vals[0] * vals[1];
+   var sum = 0;
+   for (var i = 0; i < 3; i++){
+      sum += statement[0];
+   }
+
+   for (var i = 0; i < 6; i++){
+      sum += reason[0];
+   }
+
+   out <== sum;
 }
+
+template DisjunctiveSyllogism(){
+   signal input statement[3];
+   signal input reason[6];
+
+   signal output out;
+
+   var sum = 0;
+   for (var i = 0; i < 3; i++){
+      sum += statement[0];
+   }
+
+   for (var i = 0; i < 6; i++){
+      sum += reason[0];
+   }
+
+   out <== sum;
+}
+
