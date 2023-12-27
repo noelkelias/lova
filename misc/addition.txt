@@ -1,0 +1,2 @@
+A (Hypothesis)
+A|B (Addition, [1])

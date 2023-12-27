@@ -1,0 +1,3 @@
+!B (Hypothesis)
+A>B (Hypothesis)
+!A (Modus Tollens, [1,2])

@@ -65,9 +65,9 @@ template Test() {
    res.statement <== statement;
    res.reason <== reason;
 
-   lineSums[res_index] = simp.out[0];
-   lineSums[res_index+numLogics] = simp.out[1];
-   lineSums[res_index+numLogics*2] = simp.out[2];
+   lineSums[res_index] = res.out[0];
+   lineSums[res_index+numLogics] = res.out[1];
+   lineSums[res_index+numLogics*2] = res.out[2];
 
    //Modus Ponens
    var mp_index = 5;
@@ -115,6 +115,8 @@ template Test() {
    for (var i = 0; i < 3; i++){
       statementSum += statement[i];
    }
+
+   // log("statementSum: ",statementSum, "logic: ", logic, "lineSums: ",lineSums[logic]);
    assert (statementSum == lineSums[logic]);
 
    //Test #2 - Sum across reasons

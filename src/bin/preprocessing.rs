@@ -34,9 +34,34 @@ fn encode_statement(proof_lines: &Vec<Vec<String>>) -> Vec<[i64; 3]>{
       
       for (index, elem) in raw_statement.iter().enumerate() {
          if statement_dict.get(elem) == None {
-            statement_dict.insert(elem, count);
-            statement[index] = count;
-            count += 1;
+            let temp_split = elem.split("!").collect::<Vec<_>>();
+            let mut reg_elem = temp_split.last().unwrap_or(&""); 
+            let mut neg_elem = format!("!{}", reg_elem);
+
+            //Negative Value
+            if (elem.contains("!")) && (statement_dict.contains_key(reg_elem)){
+               let reg_elem_count = *statement_dict.get(reg_elem).unwrap_or(&0);      
+
+               statement_dict.insert(elem, reg_elem_count*-1);
+               statement[index] = reg_elem_count*-1;
+
+            } else if !(elem.contains("!")) && (statement_dict.contains_key(neg_elem.as_str())){
+               let neg_elem_count = *statement_dict.get(neg_elem.as_str()).unwrap_or(&0);      
+
+               statement_dict.insert(elem, neg_elem_count*-1);
+               statement[index] = neg_elem_count*-1;
+
+            } else if (elem.contains("!")){
+               statement_dict.insert(elem, count*-1);
+               statement[index] = count*-1;
+               count += 1;
+
+            }else {
+               statement_dict.insert(elem, count);
+               statement[index] = count;
+               count += 1;
+            }
+
          } else {
             statement[index] = *statement_dict.get(elem).unwrap_or(&0);      
          }
@@ -118,7 +143,7 @@ fn main() {
    type G2 = pasta_curves::vesta::Point;
 
    // --snip--
-   let proof_lines = read_proof("misc/basic_proof.txt");
+   let proof_lines = read_proof("misc/basic_proof2.txt");
    println!("{:?}", proof_lines);
 
    let encoded_statements = encode_statement(&proof_lines);

@@ -85,7 +85,7 @@ template DisjunctiveSyllogism(or){
    signal output out[3];
 
    //Test1
-   var statementSum = reason[2];
+   var statementSum = reason[1];
 
    //Test2
    var reasonSum = 0;
@@ -216,13 +216,13 @@ template Resolution(or){
    var reasonSum = 0;
    reasonSum += statement[0];
    reasonSum += statement[1];
-   reasonSum += or;
+   reasonSum += or*2;
 
    //Test3
    var proofSum = 0;
    proofSum += statement[0]*2;
-   proofSum += reason[1]*2;
-   proofSum += or*4;
+   proofSum += reason[4]*2;
+   proofSum += or*3;
 
    out <== [statementSum, reasonSum, proofSum];
 }
