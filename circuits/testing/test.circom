@@ -19,15 +19,15 @@ template Test() {
    var or = 2;
    var arrow = 3;
 
-   //Hypothesis 
-   var hyp_index = 0;
-   component hyp = Hypothesis();
-   hyp.statement <== statement;
-   hyp.reason <== reason;
+   //Premise 
+   var prem_index = 0;
+   component prem = Premise();
+   prem.statement <== statement;
+   prem.reason <== reason;
 
-   lineSums[hyp_index] = hyp.out[0];
-   lineSums[hyp_index+numLogics] = hyp.out[1];
-   lineSums[hyp_index+numLogics*2] = hyp.out[2];
+   lineSums[prem_index] = prem.out[0];
+   lineSums[prem_index+numLogics] = prem.out[1];
+   lineSums[prem_index+numLogics*2] = prem.out[2];
 
    //Addition 
    var add_index = 1;

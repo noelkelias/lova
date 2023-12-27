@@ -24,7 +24,7 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
    let pp: PublicParams<G1, G2, _, _> = create_public_params(r1cs.clone());
 
    //Added Part
-   let proof_lines = read_proof("misc/small_proof1.txt");
+   let proof_lines = read_proof("misc/small_proof0.txt");
    let encoded_statements = encode_statement(&proof_lines);
    // println!("{:?}", encoded_statements);
    let encoded_logic = encode_logic(&proof_lines);
@@ -170,6 +170,7 @@ fn encode_statement(proof_lines: &Vec<Vec<String>>) -> Vec<[i64; 3]>{
 fn encode_logic(proof_lines: &Vec<Vec<String>>) -> Vec<i64>{
    let mut statement_dict = HashMap::from([
        ("hypothesis", 0),
+       ("premise", 0),
       ("addition", 1),
       ("conjunction",2),
       ("simplification", 3),

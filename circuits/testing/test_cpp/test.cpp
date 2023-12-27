@@ -3,8 +3,8 @@
 #include <assert.h>
 #include "circom.hpp"
 #include "calcwit.hpp"
-void Hypothesis_0_create(uint soffset,uint coffset,Circom_CalcWit* ctx,std::string componentName,uint componentFather);
-void Hypothesis_0_run(uint ctx_index,Circom_CalcWit* ctx);
+void Premise_0_create(uint soffset,uint coffset,Circom_CalcWit* ctx,std::string componentName,uint componentFather);
+void Premise_0_run(uint ctx_index,Circom_CalcWit* ctx);
 void Addition_1_create(uint soffset,uint coffset,Circom_CalcWit* ctx,std::string componentName,uint componentFather);
 void Addition_1_run(uint ctx_index,Circom_CalcWit* ctx);
 void Conjunction_2_create(uint soffset,uint coffset,Circom_CalcWit* ctx,std::string componentName,uint componentFather);
@@ -24,7 +24,7 @@ void DisjunctiveSyllogism_8_run(uint ctx_index,Circom_CalcWit* ctx);
 void Test_9_create(uint soffset,uint coffset,Circom_CalcWit* ctx,std::string componentName,uint componentFather);
 void Test_9_run(uint ctx_index,Circom_CalcWit* ctx);
 Circom_TemplateFunction _functionTable[10] = { 
-Hypothesis_0_run,
+Premise_0_run,
 Addition_1_run,
 Conjunction_2_run,
 Simplification_3_run,
@@ -91,9 +91,9 @@ delete []ctx->componentMemory[pos].sbct;
 
 // function declarations
 // template declarations
-void Hypothesis_0_create(uint soffset,uint coffset,Circom_CalcWit* ctx,std::string componentName,uint componentFather){
+void Premise_0_create(uint soffset,uint coffset,Circom_CalcWit* ctx,std::string componentName,uint componentFather){
 ctx->componentMemory[coffset].templateId = 0;
-ctx->componentMemory[coffset].templateName = "Hypothesis";
+ctx->componentMemory[coffset].templateName = "Premise";
 ctx->componentMemory[coffset].signalStart = soffset;
 ctx->componentMemory[coffset].inputCounter = 9;
 ctx->componentMemory[coffset].componentName = componentName;
@@ -101,7 +101,7 @@ ctx->componentMemory[coffset].idFather = componentFather;
 ctx->componentMemory[coffset].subcomponents = new uint[0];
 }
 
-void Hypothesis_0_run(uint ctx_index,Circom_CalcWit* ctx){
+void Premise_0_run(uint ctx_index,Circom_CalcWit* ctx){
 FrElement* signalValues = ctx->signalValues;
 u64 mySignalStart = ctx->componentMemory[ctx_index].signalStart;
 std::string myTemplateName = ctx->componentMemory[ctx_index].templateName;
@@ -1185,11 +1185,11 @@ uint sub_component_aux;
 uint index_multiple_eq;
 {
 uint aux_create = 0;
-int aux_cmp_num = 4+ctx_index+1;
-uint csoffset = mySignalStart+60;
+int aux_cmp_num = 6+ctx_index+1;
+uint csoffset = mySignalStart+84;
 for (uint i = 0; i < 1; i++) {
-std::string new_cmp_name = "hyp";
-Hypothesis_0_create(csoffset,aux_cmp_num,ctx,new_cmp_name,myId);
+std::string new_cmp_name = "prem";
+Premise_0_create(csoffset,aux_cmp_num,ctx,new_cmp_name,myId);
 mySubcomponents[aux_create+i] = aux_cmp_num;
 csoffset += 12 ;
 aux_cmp_num += 1;
@@ -1245,8 +1245,8 @@ aux_cmp_num += 1;
 }
 {
 uint aux_create = 5;
-int aux_cmp_num = 5+ctx_index+1;
-uint csoffset = mySignalStart+72;
+int aux_cmp_num = 4+ctx_index+1;
+uint csoffset = mySignalStart+60;
 for (uint i = 0; i < 1; i++) {
 std::string new_cmp_name = "mp";
 ModusPonens_5_create(csoffset,aux_cmp_num,ctx,new_cmp_name,myId);
@@ -1257,8 +1257,8 @@ aux_cmp_num += 1;
 }
 {
 uint aux_create = 6;
-int aux_cmp_num = 6+ctx_index+1;
-uint csoffset = mySignalStart+84;
+int aux_cmp_num = 5+ctx_index+1;
+uint csoffset = mySignalStart+72;
 for (uint i = 0; i < 1; i++) {
 std::string new_cmp_name = "mt";
 ModusTollens_6_create(csoffset,aux_cmp_num,ctx,new_cmp_name,myId);
@@ -1506,7 +1506,7 @@ Fr_copyn(aux_dest,&signalValues[mySignalStart + 6],6);
 // need to run sub component
 ctx->componentMemory[mySubcomponents[cmp_index_ref]].inputCounter -= 6;
 assert(!(ctx->componentMemory[mySubcomponents[cmp_index_ref]].inputCounter));
-Hypothesis_0_run(mySubcomponents[cmp_index_ref],ctx);
+Premise_0_run(mySubcomponents[cmp_index_ref],ctx);
 }
 {
 PFrElement aux_dest = &lvar[1];

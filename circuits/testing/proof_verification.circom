@@ -18,7 +18,7 @@ template CalculateTotal(n) {
     sum <== sums[n - 1];
 }
 
-template Hypothesis(){
+template Premise(){
    signal input statement[3];
    signal input reason[6];
    signal output out[3];

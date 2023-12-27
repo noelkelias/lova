@@ -1,0 +1,3 @@
+A (Premise)
+A>B (Premise)
+B (Modus Ponens, [1,2])
