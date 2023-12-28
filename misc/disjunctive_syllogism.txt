@@ -1,3 +1,0 @@
-A|B (Hypothesis)
-!A (Hypothesis)
-B (Disjunctive Syllogism, [1,2])

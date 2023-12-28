@@ -11,7 +11,7 @@ use nova_snark::{
 use serde_json::json;
 
 
-fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
+fn run_test(circuit_filepath: String, witness_gen_filepath: String, proof_filepath: String) {
    type G1 = pasta_curves::pallas::Point;
    type G2 = pasta_curves::vesta::Point;
 
@@ -24,7 +24,7 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String) {
    let pp: PublicParams<G1, G2, _, _> = create_public_params(r1cs.clone());
 
    //Added Part
-   let proof_lines = read_proof("misc/small_proof0.txt");
+   let proof_lines = read_proof(&proof_filepath);
    let encoded_statements = encode_statement(&proof_lines);
    // println!("{:?}", encoded_statements);
    let encoded_logic = encode_logic(&proof_lines);
@@ -235,8 +235,15 @@ fn read_proof(path: &str) -> Vec<Vec<String>> {
 
 fn main() {
    let circuit_filepath = "circuits/testing/test.r1cs";
-   for witness_gen_filepath in ["circuits/testing/test_cpp/test"] {
-       run_test(circuit_filepath.to_string(), witness_gen_filepath.to_string());
+   let witness_gen_filepath = "circuits/testing/test_cpp/test";
+
+   let small_proofs = ["misc/proofs/small_proof0.txt", "misc/proofs/small_proof1.txt", "misc/proofs/small_proof2.txt", "misc/proofs/small_proof3.txt", "misc/proofs/small_proof4.txt"];
+   let med_proofs = ["misc/proofs/med_proof0.txt", "misc/proofs/med_proof1.txt", "misc/proofs/med_proof2.txt", "misc/proofs/med_proof3.txt", "misc/proofs/med_proof4.txt"];
+   let all_proofs = ["misc/proofs/small_proof0.txt", "misc/proofs/small_proof1.txt", "misc/proofs/small_proof2.txt", "misc/proofs/small_proof3.txt", "misc/proofs/small_proof4.txt","misc/proofs/med_proof0.txt", "misc/proofs/med_proof1.txt", "misc/proofs/med_proof2.txt", "misc/proofs/med_proof3.txt", "misc/proofs/med_proof4.txt"];
+
+   for proof_path in all_proofs {
+      println!("{}", proof_path);
+      run_test(circuit_filepath.to_string(), witness_gen_filepath.to_string(), proof_path.to_string());
    }
 
 }

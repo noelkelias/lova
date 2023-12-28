@@ -1,0 +1,3 @@
+A (Hypothesis)
+A>B (Hypothesis)
+B (Modus Ponens, [1,2])

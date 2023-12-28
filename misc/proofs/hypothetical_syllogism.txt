@@ -1,0 +1,3 @@
+A>B (Hypothesis)
+B>C (Hypothesis)
+A>C (Hypothetical Syllogism, [1,2])
