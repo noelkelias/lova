@@ -7,9 +7,12 @@ To achieve such a feat using Nova for mathematical proofs we utilized the follow
 ![alt text](misc/imgs/workflow.png)
 
 ## Repository Design
-A basic test can be run by simply running ``` cargo run```. 
+A basic test can be run by simply running ``` cargo run``` which runs the [main.rs](src/main.rs) file. This program first preprocesses the inputted proof and encodes it numerically by slicing the proof with self-contained sections. Some sample proofs are included [here](misc/proof_tests). Note that every line of the proof must have the following format: 
+```statement (logic, [reasoningline_#1, reasoningline_#2])```. In particular, the only logical operators that should be utilized should be part of the statement and are !(not), &(and),|(or),and > (arrow). 
 
-The [examples](examples) contains sample runs for the toy and bitcoin examples in the Nova-Scotia repository. 
+Then, the necessary private and public inputs of each proof slice are hashed and submitted to the Nova-SNARK. The circuit in turn calculated check-sums on the proof slices based on the predicate logic and the lines used for proof reasoning that were both passed into the circuit as private inputs. These check-sums were systems of linear equations that were calculated on the encoded statement and lines of reasoning to be compared to the expected sums. The Circom circuit that was used can be found in [proof_verification](circuits/proof_verification). The main Circom file used is [proof_analysis.circom](circuits/proof_verification/proof_analysis.circom). 
+
+The resulting R1CS instance is converted to a Nova friendly relaxed R1CS instance with Nova-Scotia. All the resulting relaxed proof slices instances are then inputted into the Nova SNARK and folded into a single instance that is then used in a recursive SNARK. Afterwards, this is also inputted into a Spartan proof system for an even more compressed proof.
 
 ## References
 These projects/references were instrumental in helping to create this project
