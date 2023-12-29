@@ -1,7 +1,5 @@
 pragma circom 2.0.0;
 
-include "/Users/nk-mac/circom/node_modules/circomlib/circuits/comparators.circom";
-
 // This circuit returns the sum of the inputs.
 // n must be greater than 0.
 template CalculateTotal(n) {

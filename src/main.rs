@@ -12,17 +12,8 @@ use serde_json::json;
 
 
 fn run_test(circuit_filepath: String, witness_gen_filepath: String, proof_filepath: String) {
-   // type G1 = pasta_curves::pallas::Point;
-   // type G2 = pasta_curves::vesta::Point;
-
-   // type G1 = pasta_curves::vesta::Point;
-   // type G2 = pasta_curves::pallas::Point;
-
-   // type G1 = provider::bn256_grumpkin::bn256::Point;
-   // type G2 = provider::bn256_grumpkin::grumpkin::Point;
-
-   type G1 = provider::bn256_grumpkin::grumpkin::Point;
-   type G2 = provider::bn256_grumpkin::bn256::Point;
+   type G1 = pasta_curves::pallas::Point;
+   type G2 = pasta_curves::vesta::Point;
 
    let root = current_dir().unwrap();
 
@@ -32,18 +23,11 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String, proof_filepa
 
    let pp: PublicParams<G1, G2, _, _> = create_public_params(r1cs.clone());
 
-   //Added Part
+   //Added Preprocessing
    let proof_lines = read_proof(&proof_filepath);
    let encoded_statements = encode_statement(&proof_lines);
-   // println!("{:?}", encoded_statements);
    let encoded_logic = encode_logic(&proof_lines);
-   // println!("{:?}", encoded_logic);
    let encoded_reasoning = encode_reasoning(&proof_lines, &encoded_statements);
-   // println!("{:?}", encoded_reasoning);
-
-   // let encoded_logic: [[i32; 3]; 3] = [[0, 0, 0], [1, 0, 0], [0, 1, 1]];
-   // let encoded_logic: [i32; 3] = [0,0,1];
-
 
    let iteration_count = proof_lines.len();
 
@@ -59,24 +43,24 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String, proof_filepa
 
   let start_public_input = [F::<G1>::from(2)];
 
-//   //Print Constraint information
-//   println!(
-//    "Number of constraints per step (primary circuit): {}",
-//    pp.num_constraints().0
-//    );
-//    println!(
-//       "Number of constraints per step (secondary circuit): {}",
-//       pp.num_constraints().1
-//    );
+  //Print Constraint information
+  println!(
+   "Number of constraints per step (primary circuit): {}",
+   pp.num_constraints().0
+   );
+   println!(
+      "Number of constraints per step (secondary circuit): {}",
+      pp.num_constraints().1
+   );
 
-//    println!(
-//       "Number of variables per step (primary circuit): {}",
-//       pp.num_variables().0
-//    );
-//    println!(
-//       "Number of variables per step (secondary circuit): {}",
-//       pp.num_variables().1
-// );
+   println!(
+      "Number of variables per step (primary circuit): {}",
+      pp.num_variables().0
+   );
+   println!(
+      "Number of variables per step (secondary circuit): {}",
+      pp.num_variables().1
+);
 
     //Added end
     println!("Creating a RecursiveSNARK...");
@@ -157,8 +141,8 @@ fn encode_statement(proof_lines: &Vec<Vec<String>>) -> Vec<[i64; 3]>{
       for (index, elem) in raw_statement.iter().enumerate() {
          if statement_dict.get(elem) == None {
             let temp_split = elem.split("!").collect::<Vec<_>>();
-            let mut reg_elem = temp_split.last().unwrap_or(&""); 
-            let mut neg_elem = format!("!{}", reg_elem);
+            let reg_elem = temp_split.last().unwrap_or(&""); 
+            let neg_elem = format!("!{}", reg_elem);
 
             //Negative Value
             if (elem.contains("!")) && (statement_dict.contains_key(reg_elem)){
@@ -173,7 +157,7 @@ fn encode_statement(proof_lines: &Vec<Vec<String>>) -> Vec<[i64; 3]>{
                statement_dict.insert(elem, neg_elem_count*-1);
                statement[index] = neg_elem_count*-1;
 
-            } else if (elem.contains("!")){
+            } else if elem.contains("!"){
                statement_dict.insert(elem, count*-1);
                statement[index] = count*-1;
                count += 1;
@@ -196,7 +180,7 @@ fn encode_statement(proof_lines: &Vec<Vec<String>>) -> Vec<[i64; 3]>{
 
 //Encode Logic steps
 fn encode_logic(proof_lines: &Vec<Vec<String>>) -> Vec<i64>{
-   let mut statement_dict = HashMap::from([
+   let statement_dict = HashMap::from([
        ("hypothesis", 0),
        ("premise", 0),
       ("addition", 1),
@@ -262,17 +246,15 @@ fn read_proof(path: &str) -> Vec<Vec<String>> {
 }
 
 fn main() {
-   let circuit_filepath = "circuits/testing/test.r1cs";
-   let witness_gen_filepath = "circuits/testing/test_cpp/test";
+   let circuit_filepath = "circuits/proof_verification/proof_analysis.r1cs";
+   let witness_gen_filepath = "circuits/proof_verification/proof_analysis_cpp/proof_analysis";
 
+   let proof_paths = ["misc/proof_tests/length_tests/small_proof0.txt"];
 
-   let all_proofs = ["misc/proofs/small_proof0.txt", "misc/proofs/small_proof1.txt", "misc/proofs/small_proof2.txt", "misc/proofs/small_proof3.txt", "misc/proofs/small_proof4.txt","misc/proofs/med_proof0.txt", "misc/proofs/med_proof1.txt", "misc/proofs/med_proof2.txt", "misc/proofs/med_proof3.txt"];
-   let test_proof = ["misc/proofs/small_proof2.txt"];
-
-   for proof_path in test_proof {
+   for path in proof_paths {
       println!("");
-      println!("{}", proof_path);
-      run_test(circuit_filepath.to_string(), witness_gen_filepath.to_string(), proof_path.to_string());
+      println!("Analyzing {}", path);
+      run_test(circuit_filepath.to_string(), witness_gen_filepath.to_string(), path.to_string());
    }
 
 }
