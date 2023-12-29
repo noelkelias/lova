@@ -12,8 +12,17 @@ use serde_json::json;
 
 
 fn run_test(circuit_filepath: String, witness_gen_filepath: String, proof_filepath: String) {
-   type G1 = pasta_curves::pallas::Point;
-   type G2 = pasta_curves::vesta::Point;
+   // type G1 = pasta_curves::pallas::Point;
+   // type G2 = pasta_curves::vesta::Point;
+
+   // type G1 = pasta_curves::vesta::Point;
+   // type G2 = pasta_curves::pallas::Point;
+
+   // type G1 = provider::bn256_grumpkin::bn256::Point;
+   // type G2 = provider::bn256_grumpkin::grumpkin::Point;
+
+   type G1 = provider::bn256_grumpkin::grumpkin::Point;
+   type G2 = provider::bn256_grumpkin::bn256::Point;
 
    let root = current_dir().unwrap();
 
@@ -49,6 +58,25 @@ fn run_test(circuit_filepath: String, witness_gen_filepath: String, proof_filepa
   }
 
   let start_public_input = [F::<G1>::from(2)];
+
+//   //Print Constraint information
+//   println!(
+//    "Number of constraints per step (primary circuit): {}",
+//    pp.num_constraints().0
+//    );
+//    println!(
+//       "Number of constraints per step (secondary circuit): {}",
+//       pp.num_constraints().1
+//    );
+
+//    println!(
+//       "Number of variables per step (primary circuit): {}",
+//       pp.num_variables().0
+//    );
+//    println!(
+//       "Number of variables per step (secondary circuit): {}",
+//       pp.num_variables().1
+// );
 
     //Added end
     println!("Creating a RecursiveSNARK...");
@@ -237,11 +265,12 @@ fn main() {
    let circuit_filepath = "circuits/testing/test.r1cs";
    let witness_gen_filepath = "circuits/testing/test_cpp/test";
 
-   let small_proofs = ["misc/proofs/small_proof0.txt", "misc/proofs/small_proof1.txt", "misc/proofs/small_proof2.txt", "misc/proofs/small_proof3.txt", "misc/proofs/small_proof4.txt"];
-   let med_proofs = ["misc/proofs/med_proof0.txt", "misc/proofs/med_proof1.txt", "misc/proofs/med_proof2.txt", "misc/proofs/med_proof3.txt", "misc/proofs/med_proof4.txt"];
-   let all_proofs = ["misc/proofs/small_proof0.txt", "misc/proofs/small_proof1.txt", "misc/proofs/small_proof2.txt", "misc/proofs/small_proof3.txt", "misc/proofs/small_proof4.txt","misc/proofs/med_proof0.txt", "misc/proofs/med_proof1.txt", "misc/proofs/med_proof2.txt", "misc/proofs/med_proof3.txt", "misc/proofs/med_proof4.txt"];
 
-   for proof_path in all_proofs {
+   let all_proofs = ["misc/proofs/small_proof0.txt", "misc/proofs/small_proof1.txt", "misc/proofs/small_proof2.txt", "misc/proofs/small_proof3.txt", "misc/proofs/small_proof4.txt","misc/proofs/med_proof0.txt", "misc/proofs/med_proof1.txt", "misc/proofs/med_proof2.txt", "misc/proofs/med_proof3.txt"];
+   let test_proof = ["misc/proofs/small_proof2.txt"];
+
+   for proof_path in test_proof {
+      println!("");
       println!("{}", proof_path);
       run_test(circuit_filepath.to_string(), witness_gen_filepath.to_string(), proof_path.to_string());
    }

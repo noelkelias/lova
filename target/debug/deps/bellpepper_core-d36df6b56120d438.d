@@ -1,0 +1,14 @@
+/Users/nk-mac/Documents/Research/nova_mathproofs/target/debug/deps/libbellpepper_core-d36df6b56120d438.rmeta: /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/lib.rs /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/lc.rs /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/constraint_system.rs /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/gadgets/mod.rs /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/gadgets/boolean.rs /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/gadgets/num.rs /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/util_cs/mod.rs /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/util_cs/test_cs.rs
+
+/Users/nk-mac/Documents/Research/nova_mathproofs/target/debug/deps/bellpepper_core-d36df6b56120d438.d: /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/lib.rs /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/lc.rs /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/constraint_system.rs /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/gadgets/mod.rs /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/gadgets/boolean.rs /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/gadgets/num.rs /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/util_cs/mod.rs /Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/util_cs/test_cs.rs
+
+/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/lib.rs:
+/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/lc.rs:
+/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/constraint_system.rs:
+/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/gadgets/mod.rs:
+/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/gadgets/boolean.rs:
+/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/gadgets/num.rs:
+/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/util_cs/mod.rs:
+/Users/nk-mac/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bellpepper-core-0.4.0/src/util_cs/test_cs.rs:
+
+# env-dep:CARGO_PKG_VERSION=0.4.0

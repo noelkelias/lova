@@ -1,0 +1,1 @@
+CompressedSNARK<pasta_curves::Eq, pasta_curves::Eq, CircomCircuit<pasta_curves::Fp>, TrivialTestCircuit<pasta_curves::Fp>, nova_snark::spartan::snark::RelaxedR1CSSNARK<pasta_curves::Eq, EvaluationEngine<pasta_curves::Eq>>, nova_snark::spartan::snark::RelaxedR1CSSNARK<pasta_curves::Eq, EvaluationEngine<pasta_curves::Eq>>>
