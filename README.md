@@ -1,4 +1,4 @@
-# Lova: Verifying Mathematical Proofs with Nova
+# Lova: A Framework for Verifying Mathematical Proofs with Nova
 
 Efficiently verifying mathematical proofs and computation has been a heavily researched topic within Computer Science. Particularly, as proofs become larger, even repetitive statements become much more complex on the prover side and inefficient for verifiers. To solve this problem, we can view this problem through the lens of the Incrementally Verifiable Computation (IVC) and utilize the novel Nova folding scheme that can combine multiple instances into a single folded instance. This repository provides the code of the implementation of a novel pipeline that utilizes this high-speed recursive SNARK, Nova, to develop a scheme with linear prover time, constant verifying capability, dynamic/easy modification, and privacy to efficiently validate mathematical proofs. 
 
