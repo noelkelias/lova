@@ -15,7 +15,7 @@ Then, the necessary private and public inputs of each proof slice are hashed and
 The resulting R1CS instance is converted to a Nova friendly relaxed R1CS instance with Nova-Scotia. All the resulting relaxed proof slices instances are then inputted into the Nova SNARK and folded into a single instance that is then used in a recursive SNARK. Afterwards, this is also inputted into a Spartan proof system for an even more compressed proof.
 
 ## References
-These projects/references were also instrumental in helping to create this project
+These projects/references were instrumental in helping to create this project
 <ul>
   <li>https://github.com/microsoft/Nova/tree0fb0b495f224c555b5b221bd65ea9fbf43384c39</li>
   <li>https://github.com/nalinbhardwaj/Nova-Scotia</li>
