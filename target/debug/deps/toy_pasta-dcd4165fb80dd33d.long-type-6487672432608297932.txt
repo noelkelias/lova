@@ -1,1 +1,0 @@
-CompressedSNARK<_, _, _, _, nova_snark::spartan::snark::RelaxedR1CSSNARK<Ep, nova_snark::provider::ipa_pc::EvaluationEngine<Ep>>, nova_snark::spartan::snark::RelaxedR1CSSNARK<pasta_curves::Eq, nova_snark::provider::ipa_pc::EvaluationEngine<pasta_curves::Eq>>>

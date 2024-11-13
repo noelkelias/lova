@@ -1,1 +1,0 @@
-CompressedSNARK<_, _, _, _, nova_snark::spartan::snark::RelaxedR1CSSNARK<halo2curves::bn256::curve::G1, nova_snark::provider::ipa_pc::EvaluationEngine<halo2curves::bn256::curve::G1>>, nova_snark::spartan::snark::RelaxedR1CSSNARK<halo2curves::grumpkin::curve::G1, nova_snark::provider::ipa_pc::EvaluationEngine<halo2curves::grumpkin::curve::G1>>>
