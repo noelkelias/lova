@@ -1,0 +1,15 @@
+DIGEST 9692a236f0a96146589c270a47c87069
+Fmodus_tollens
+prf 8:20 <> modus_tollens
+binder 31:31 <> A:1
+binder 33:33 <> B:2
+R43:43 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R50:54 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R45:48 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R44:44 modus_tollens <> A:1 var
+R49:49 modus_tollens <> B:2 var
+R57:60 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R55:55 Coq.Init.Logic <> ::type_scope:'~'_x not
+R56:56 modus_tollens <> B:2 var
+R61:61 Coq.Init.Logic <> ::type_scope:'~'_x not
+R62:62 modus_tollens <> A:1 var

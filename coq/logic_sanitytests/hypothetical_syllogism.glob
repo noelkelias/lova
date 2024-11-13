@@ -1,0 +1,20 @@
+DIGEST 86e63094d62ed969eb50e8ffaeaeefd7
+Fhypothetical_syllogism
+prf 8:29 <> hypothetical_syllogism
+binder 40:40 <> A:1
+binder 42:42 <> B:2
+binder 44:44 <> C:3
+R54:54 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R61:65 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R56:59 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R55:55 hypothetical_syllogism <> A:1 var
+R60:60 hypothetical_syllogism <> B:2 var
+R66:66 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R73:78 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R85:85 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R68:71 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R67:67 hypothetical_syllogism <> B:2 var
+R72:72 hypothetical_syllogism <> C:3 var
+R80:83 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R79:79 hypothetical_syllogism <> A:1 var
+R84:84 hypothetical_syllogism <> C:3 var

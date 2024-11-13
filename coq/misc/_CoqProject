@@ -1,0 +1,4 @@
+-R . MyProofs
+rules_of_inference.v
+test.v
+import.v

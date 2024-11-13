@@ -1,0 +1,13 @@
+DIGEST a48ae84f4ffa9caa4af08fbc1057f0ba
+Fmodus_ponens
+prf 8:19 <> modus_ponens
+binder 30:30 <> A:1
+binder 32:32 <> B:2
+R42:42 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R49:53 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R44:47 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R43:43 modus_ponens <> A:1 var
+R48:48 modus_ponens <> B:2 var
+R55:58 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R54:54 modus_ponens <> A:1 var
+R59:59 modus_ponens <> B:2 var

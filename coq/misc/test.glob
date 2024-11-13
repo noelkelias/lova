@@ -1,0 +1,154 @@
+DIGEST 87ecf65ddfe943cc85a5c66ccb8a5f07
+Ftest
+R15:27 Coq.Bool.Bool <> <> lib
+prf 153:163 <> conjunction
+binder 174:174 <> A:1
+binder 176:176 <> B:2
+R187:190 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R186:186 test <> A:1 var
+R192:195 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R191:191 test <> B:2 var
+R197:200 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R196:196 test <> A:1 var
+R201:201 test <> B:2 var
+prf 557:564 <> addition
+binder 575:575 <> A:3
+binder 577:577 <> B:4
+R588:592 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R599:599 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R587:587 test <> A:3 var
+R594:597 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R593:593 test <> A:3 var
+R598:598 test <> B:4 var
+prf 864:875 <> modus_ponens
+binder 886:886 <> P:5
+binder 888:888 <> Q:6
+R900:900 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R907:911 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R902:905 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R901:901 test <> P:5 var
+R906:906 test <> Q:6 var
+R913:916 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R912:912 test <> P:5 var
+R917:917 test <> Q:6 var
+prf 1090:1110 <> disjunctive_syllogism
+binder 1121:1121 <> A:7
+binder 1123:1123 <> B:8
+R1133:1133 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1140:1144 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1135:1138 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R1134:1134 test <> A:7 var
+R1139:1139 test <> B:8 var
+R1147:1150 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1145:1145 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1146:1146 test <> A:7 var
+R1151:1151 test <> B:8 var
+prf 1412:1433 <> hypothetical_syllogism
+binder 1444:1444 <> A:9
+binder 1446:1446 <> B:10
+binder 1448:1448 <> C:11
+R1458:1458 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1465:1469 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1460:1463 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1459:1459 test <> A:9 var
+R1464:1464 test <> B:10 var
+R1470:1470 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1477:1482 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1489:1489 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1472:1475 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1471:1471 test <> B:10 var
+R1476:1476 test <> C:11 var
+R1484:1487 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1483:1483 test <> A:9 var
+R1488:1488 test <> C:11 var
+prf 1748:1760 <> modus_tollens
+binder 1771:1771 <> A:12
+binder 1773:1773 <> B:13
+R1783:1783 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1790:1794 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1785:1788 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1784:1784 test <> A:12 var
+R1789:1789 test <> B:13 var
+R1797:1800 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1795:1795 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1796:1796 test <> B:13 var
+R1801:1801 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1802:1802 test <> A:12 var
+prf 2130:2143 <> simplification
+binder 2154:2154 <> A:14
+binder 2156:2156 <> B:15
+R2166:2166 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2173:2177 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2168:2171 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R2167:2167 test <> A:14 var
+R2172:2172 test <> B:15 var
+R2178:2178 test <> A:14 var
+prf 2437:2462 <> disjunctive_syllogism_bool
+R2482:2485 Coq.Init.Datatypes <> bool ind
+binder 2474:2475 <> b1:16
+binder 2477:2478 <> b2:17
+R2491:2491 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2514:2518 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2501:2504 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R2494:2496 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2492:2493 test <> b1:16 var
+R2497:2500 Coq.Init.Datatypes <> true constr
+R2507:2509 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2505:2506 test <> b2:17 var
+R2510:2513 Coq.Init.Datatypes <> true constr
+R2519:2519 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2530:2535 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2545:2545 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2522:2524 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2520:2521 test <> b1:16 var
+R2525:2529 Coq.Init.Datatypes <> false constr
+R2538:2540 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2536:2537 test <> b2:17 var
+R2541:2544 Coq.Init.Datatypes <> true constr
+ind 2792:2795 <> bool
+constr 2811:2814 <> true
+constr 2827:2831 <> false
+R2818:2821 test <> bool:18 ind
+R2835:2838 test <> bool:18 ind
+scheme 2792:2795 <> bool_rect
+scheme 2792:2795 <> bool_ind
+scheme 2792:2795 <> bool_rec
+scheme 2792:2795 <> bool_sind
+def 2878:2880 <> and
+R2889:2892 test <> bool ind
+binder 2883:2883 <> a:20
+binder 2885:2885 <> b:21
+R2897:2900 test <> bool ind
+R2916:2916 test <> b:21 var
+R2913:2913 test <> a:20 var
+R2927:2930 test <> true constr
+R2933:2936 test <> true constr
+R2941:2944 test <> true constr
+R2958:2962 test <> false constr
+def 3011:3018 <> simplify
+R3025:3028 test <> bool ind
+binder 3021:3021 <> a:24
+R3036:3039 test <> bool ind
+binder 3032:3032 <> b:25
+R3044:3047 test <> bool ind
+R3054:3056 test <> and def
+R3058:3058 test <> a:24 var
+R3060:3060 test <> b:25 var
+prf 3082:3088 <> AB_zero
+R3104:3107 test <> bool ind
+binder 3100:3100 <> A:26
+R3115:3118 test <> bool ind
+binder 3111:3111 <> B:27
+R3132:3135 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3125:3127 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3124:3124 test <> A:26 var
+R3128:3131 test <> true constr
+R3145:3148 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3137:3139 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3136:3136 test <> B:27 var
+R3140:3144 test <> false constr
+R3156:3158 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3149:3151 test <> and def
+R3153:3153 test <> A:26 var
+R3155:3155 test <> B:27 var
+R3159:3163 test <> false constr

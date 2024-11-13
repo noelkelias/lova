@@ -1,0 +1,40 @@
+DIGEST 73f3fe97e88b1bbdb482dac43602bcb7
+Ftest2
+R15:32 rules_of_inference <> <> lib
+prf 45:57 <> complex_proof
+binder 68:68 <> P:1
+binder 70:70 <> Q:2
+binder 72:72 <> R:3
+binder 74:74 <> S:4
+R86:86 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R133:138 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R145:145 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R87:87 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R108:113 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R132:132 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R88:88 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R95:100 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R107:107 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R90:93 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R89:89 test2 <> P:1 var
+R94:94 test2 <> Q:2 var
+R102:105 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R101:101 test2 <> R:3 var
+R106:106 test2 <> S:4 var
+R114:114 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R121:125 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R116:119 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R115:115 test2 <> P:1 var
+R120:120 test2 <> R:3 var
+R127:130 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R126:126 test2 <> P:1 var
+R131:131 test2 <> R:3 var
+R140:143 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R139:139 test2 <> S:4 var
+R144:144 test2 <> Q:2 var
+R290:301 rules_of_inference <> modus_ponens thm
+R290:301 rules_of_inference <> modus_ponens thm
+R377:388 rules_of_inference <> modus_ponens thm
+R377:388 rules_of_inference <> modus_ponens thm
+R441:451 rules_of_inference <> conjunction thm
+R441:451 rules_of_inference <> conjunction thm

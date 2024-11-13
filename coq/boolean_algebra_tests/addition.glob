@@ -1,0 +1,9 @@
+DIGEST 71c5f2074623a190c05d32d3af6d8206
+Faddition
+R15:25 boolean_ops <> <> lib
+def 38:41 <> main
+R67:69 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R45:55 boolean_ops <> boolean_add def
+R57:60 boolean_ops <> true constr
+R62:66 boolean_ops <> false constr
+R70:73 boolean_ops <> true constr

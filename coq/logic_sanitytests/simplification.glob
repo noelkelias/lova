@@ -1,0 +1,11 @@
+DIGEST 998ec0ab59242ffd1d3bdfa3bc0e65fc
+Fsimplification
+prf 8:21 <> simplification
+binder 32:32 <> A:1
+binder 34:34 <> B:2
+R44:44 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R51:55 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R46:49 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R45:45 simplification <> A:1 var
+R50:50 simplification <> B:2 var
+R56:56 simplification <> A:1 var

@@ -1,0 +1,99 @@
+DIGEST 730ae0d1c4a30cbd3a2a220916410a07
+Fcomputation2
+R15:25 boolean_ops <> <> lib
+prf 36:47 <> computation2
+R70:73 boolean_ops <> bool ind
+binder 58:58 <> A:1
+binder 60:60 <> B:2
+binder 62:62 <> C:3
+binder 64:64 <> P:4
+binder 66:66 <> Q:5
+R86:89 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R79:81 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R78:78 computation2 <> A:1 var
+R82:85 boolean_ops <> true constr
+R98:101 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R91:93 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R90:90 computation2 <> B:2 var
+R94:97 boolean_ops <> true constr
+R110:113 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R103:105 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R102:102 computation2 <> C:3 var
+R106:109 boolean_ops <> true constr
+R122:127 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R115:117 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R114:114 computation2 <> P:4 var
+R118:121 boolean_ops <> true constr
+R406:408 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R128:138 boolean_ops <> boolean_add def
+R144:154 boolean_ops <> boolean_add def
+R157:168 boolean_ops <> boolean_mult def
+R170:170 computation2 <> A:1 var
+R172:172 computation2 <> B:2 var
+R176:186 boolean_ops <> boolean_add def
+R188:188 computation2 <> C:3 var
+R191:201 boolean_ops <> boolean_add def
+R203:203 computation2 <> B:2 var
+R207:217 boolean_ops <> boolean_add def
+R219:219 computation2 <> Q:5 var
+R227:237 boolean_ops <> boolean_add def
+R240:251 boolean_ops <> boolean_mult def
+R253:253 computation2 <> B:2 var
+R255:255 computation2 <> P:4 var
+R260:270 boolean_ops <> boolean_add def
+R273:284 boolean_ops <> boolean_mult def
+R286:286 computation2 <> A:1 var
+R288:288 computation2 <> P:4 var
+R296:306 boolean_ops <> boolean_add def
+R309:320 boolean_ops <> boolean_mult def
+R322:322 computation2 <> C:3 var
+R324:324 computation2 <> P:4 var
+R328:338 boolean_ops <> boolean_add def
+R341:352 boolean_ops <> boolean_mult def
+R354:354 computation2 <> P:4 var
+R356:356 computation2 <> P:4 var
+R364:374 boolean_ops <> boolean_add def
+R376:376 computation2 <> A:1 var
+R378:378 computation2 <> P:4 var
+R390:400 boolean_ops <> boolean_add def
+R402:402 computation2 <> A:1 var
+R404:404 computation2 <> P:4 var
+R409:412 boolean_ops <> true constr
+def 520:523 <> main
+R857:859 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R530:540 boolean_ops <> boolean_add def
+R546:556 boolean_ops <> boolean_add def
+R559:570 boolean_ops <> boolean_mult def
+R572:575 boolean_ops <> true constr
+R577:580 boolean_ops <> true constr
+R584:594 boolean_ops <> boolean_add def
+R596:599 boolean_ops <> true constr
+R602:612 boolean_ops <> boolean_add def
+R614:617 boolean_ops <> true constr
+R624:634 boolean_ops <> boolean_add def
+R636:640 boolean_ops <> false constr
+R643:653 boolean_ops <> boolean_add def
+R656:667 boolean_ops <> boolean_mult def
+R669:672 boolean_ops <> true constr
+R674:677 boolean_ops <> true constr
+R681:691 boolean_ops <> boolean_add def
+R694:705 boolean_ops <> boolean_mult def
+R707:710 boolean_ops <> true constr
+R712:715 boolean_ops <> true constr
+R723:733 boolean_ops <> boolean_add def
+R736:747 boolean_ops <> boolean_mult def
+R749:752 boolean_ops <> true constr
+R754:757 boolean_ops <> true constr
+R761:771 boolean_ops <> boolean_add def
+R774:785 boolean_ops <> boolean_mult def
+R787:790 boolean_ops <> true constr
+R792:795 boolean_ops <> true constr
+R803:813 boolean_ops <> boolean_add def
+R815:818 boolean_ops <> true constr
+R820:823 boolean_ops <> true constr
+R835:845 boolean_ops <> boolean_add def
+R847:850 boolean_ops <> true constr
+R852:855 boolean_ops <> true constr
+R860:863 boolean_ops <> true constr
+R882:893 computation2 <> computation2 thm
+R882:893 computation2 <> computation2 thm

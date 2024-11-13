@@ -1,0 +1,45 @@
+DIGEST df2c55cd17ce75cacd53c6722b036d00
+Fboolean_ops
+ind 10:13 <> bool
+constr 29:32 <> true
+constr 45:49 <> false
+R36:39 boolean_ops <> bool:1 ind
+R53:56 boolean_ops <> bool:1 ind
+scheme 10:13 <> bool_rect
+scheme 10:13 <> bool_ind
+scheme 10:13 <> bool_rec
+scheme 10:13 <> bool_sind
+def 71:81 <> boolean_add
+R92:95 boolean_ops <> bool ind
+binder 84:85 <> b1:3
+binder 87:88 <> b2:4
+R100:103 boolean_ops <> bool ind
+R120:121 boolean_ops <> b2:4 var
+R116:117 boolean_ops <> b1:3 var
+R132:135 boolean_ops <> true constr
+R143:146 boolean_ops <> true constr
+R155:158 boolean_ops <> true constr
+R163:166 boolean_ops <> true constr
+R172:176 boolean_ops <> false constr
+R179:183 boolean_ops <> false constr
+R188:192 boolean_ops <> false constr
+def 213:224 <> boolean_mult
+R235:238 boolean_ops <> bool ind
+binder 227:228 <> b1:7
+binder 230:231 <> b2:8
+R243:246 boolean_ops <> bool ind
+R263:264 boolean_ops <> b2:8 var
+R259:260 boolean_ops <> b1:7 var
+R275:278 boolean_ops <> true constr
+R281:284 boolean_ops <> true constr
+R289:292 boolean_ops <> true constr
+R306:310 boolean_ops <> false constr
+def 331:341 <> boolean_not
+R348:351 boolean_ops <> bool ind
+binder 344:344 <> b:11
+R356:359 boolean_ops <> bool ind
+R372:372 boolean_ops <> b:11 var
+R383:386 boolean_ops <> true constr
+R391:395 boolean_ops <> false constr
+R401:405 boolean_ops <> false constr
+R410:413 boolean_ops <> true constr

@@ -1,0 +1,29 @@
+DIGEST 8e8bcbeb0b2311d4e25651a3b1e22a3d
+Fcomputation1
+R15:25 boolean_ops <> <> lib
+prf 58:69 <> computation1
+R86:89 boolean_ops <> bool ind
+binder 80:80 <> A:1
+binder 82:82 <> B:2
+R102:105 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R95:97 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R94:94 computation1 <> A:1 var
+R98:101 boolean_ops <> true constr
+R106:106 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R142:145 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R107:118 boolean_ops <> boolean_mult def
+R121:131 boolean_ops <> boolean_add def
+R133:133 computation1 <> A:1 var
+R135:135 computation1 <> B:2 var
+R138:141 boolean_ops <> true constr
+R146:149 boolean_ops <> true constr
+def 237:240 <> main
+R286:288 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R244:255 boolean_ops <> boolean_mult def
+R258:268 boolean_ops <> boolean_add def
+R270:273 boolean_ops <> true constr
+R275:279 boolean_ops <> false constr
+R282:285 boolean_ops <> true constr
+R289:292 boolean_ops <> true constr
+R310:321 computation1 <> computation1 thm
+R310:321 computation1 <> computation1 thm

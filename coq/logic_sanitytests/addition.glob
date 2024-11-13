@@ -1,0 +1,11 @@
+DIGEST c1bc4e1c9d202886a2166dc63d771992
+Faddition
+R15:27 Coq.Bool.Bool <> <> lib
+prf 39:54 <> addition_example
+binder 65:65 <> A:1
+binder 67:67 <> B:2
+R78:81 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R77:77 addition <> A:1 var
+R83:86 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R82:82 addition <> A:1 var
+R87:87 addition <> B:2 var

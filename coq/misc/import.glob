@@ -1,0 +1,28 @@
+DIGEST b1217019feedb5247ccf851fbdac175d
+Fimport
+R15:32 rules_of_inference <> <> lib
+R50:53 test <> <> lib
+prf 65:77 <> example_usage
+R97:100 test <> bool ind
+binder 89:90 <> b1:1
+binder 92:93 <> b2:2
+R106:106 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R129:133 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R116:119 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R109:111 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R107:108 import <> b1:1 var
+R112:115 test <> true constr
+R122:124 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R120:121 import <> b2:2 var
+R125:128 test <> true constr
+R134:134 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R145:150 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R160:160 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R137:139 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R135:136 import <> b1:1 var
+R140:144 test <> false constr
+R153:155 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R151:152 import <> b2:2 var
+R156:159 test <> true constr
+R207:232 test <> disjunctive_syllogism_bool thm
+R207:232 test <> disjunctive_syllogism_bool thm

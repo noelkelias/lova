@@ -1,0 +1,13 @@
+DIGEST c095b7a4308a0c60ba72f2492604c753
+Fconjunction
+R15:27 Coq.Bool.Bool <> <> lib
+prf 39:57 <> conjunction_example
+binder 68:68 <> A:1
+binder 70:70 <> B:2
+R81:84 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R80:80 conjunction <> A:1 var
+R86:89 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R85:85 conjunction <> B:2 var
+R91:94 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R90:90 conjunction <> A:1 var
+R95:95 conjunction <> B:2 var

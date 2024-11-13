@@ -1,0 +1,14 @@
+DIGEST 4a44b1c0b8a5f665350acf67dd9a1f0f
+Fdisjunctive_syllogism
+prf 8:28 <> disjunctive_syllogism
+binder 39:39 <> A:1
+binder 41:41 <> B:2
+R51:51 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R58:62 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53:56 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R52:52 disjunctive_syllogism <> A:1 var
+R57:57 disjunctive_syllogism <> B:2 var
+R65:68 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R63:63 Coq.Init.Logic <> ::type_scope:'~'_x not
+R64:64 disjunctive_syllogism <> A:1 var
+R69:69 disjunctive_syllogism <> B:2 var

@@ -1,0 +1,9 @@
+DIGEST e55abc009cbf12e2f06b67c8a537a614
+Fmultiplication
+R15:25 boolean_ops <> <> lib
+def 58:61 <> main
+R87:89 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R65:76 boolean_ops <> boolean_mult def
+R78:81 boolean_ops <> true constr
+R83:86 boolean_ops <> true constr
+R90:93 boolean_ops <> true constr

@@ -1,0 +1,85 @@
+DIGEST 6f3dd2511a79e3b329473d5eedc57ce0
+Frules_of_inference
+R15:27 Coq.Bool.Bool <> <> lib
+prf 154:164 <> conjunction
+binder 175:175 <> A:1
+binder 177:177 <> B:2
+R188:191 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R187:187 rules_of_inference <> A:1 var
+R193:196 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R192:192 rules_of_inference <> B:2 var
+R198:201 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R197:197 rules_of_inference <> A:1 var
+R202:202 rules_of_inference <> B:2 var
+prf 558:565 <> addition
+binder 576:576 <> A:3
+binder 578:578 <> B:4
+R589:593 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R600:600 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R588:588 rules_of_inference <> A:3 var
+R595:598 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R594:594 rules_of_inference <> A:3 var
+R599:599 rules_of_inference <> B:4 var
+prf 865:876 <> modus_ponens
+binder 887:887 <> P:5
+binder 889:889 <> Q:6
+R901:901 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R908:912 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R903:906 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R902:902 rules_of_inference <> P:5 var
+R907:907 rules_of_inference <> Q:6 var
+R914:917 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R913:913 rules_of_inference <> P:5 var
+R918:918 rules_of_inference <> Q:6 var
+prf 1091:1111 <> disjunctive_syllogism
+binder 1122:1122 <> A:7
+binder 1124:1124 <> B:8
+R1134:1134 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1141:1145 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1136:1139 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R1135:1135 rules_of_inference <> A:7 var
+R1140:1140 rules_of_inference <> B:8 var
+R1148:1151 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1146:1146 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1147:1147 rules_of_inference <> A:7 var
+R1152:1152 rules_of_inference <> B:8 var
+prf 1413:1434 <> hypothetical_syllogism
+binder 1445:1445 <> A:9
+binder 1447:1447 <> B:10
+binder 1449:1449 <> C:11
+R1459:1459 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1466:1470 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1461:1464 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1460:1460 rules_of_inference <> A:9 var
+R1465:1465 rules_of_inference <> B:10 var
+R1471:1471 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1478:1483 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1490:1490 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1473:1476 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1472:1472 rules_of_inference <> B:10 var
+R1477:1477 rules_of_inference <> C:11 var
+R1485:1488 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1484:1484 rules_of_inference <> A:9 var
+R1489:1489 rules_of_inference <> C:11 var
+prf 1749:1761 <> modus_tollens
+binder 1772:1772 <> A:12
+binder 1774:1774 <> B:13
+R1784:1784 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1791:1795 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1786:1789 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1785:1785 rules_of_inference <> A:12 var
+R1790:1790 rules_of_inference <> B:13 var
+R1798:1801 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1796:1796 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1797:1797 rules_of_inference <> B:13 var
+R1802:1802 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1803:1803 rules_of_inference <> A:12 var
+prf 2131:2144 <> simplification
+binder 2155:2155 <> A:14
+binder 2157:2157 <> B:15
+R2167:2167 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2174:2178 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2169:2172 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R2168:2168 rules_of_inference <> A:14 var
+R2173:2173 rules_of_inference <> B:15 var
+R2179:2179 rules_of_inference <> A:14 var
