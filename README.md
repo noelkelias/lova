@@ -17,11 +17,22 @@ Then, the necessary private and public inputs of each proof slice are hashed and
 The resulting R1CS instance is converted to a Nova friendly relaxed R1CS instance with Nova-Scotia. All the resulting relaxed proof slices instances are then inputted into the Nova SNARK and folded into a single instance that is then used in a recursive SNARK. Afterwards, this is also inputted into a Spartan proof system for an even more compressed proof.
 
 ## References
-The full paper can be accessed at [https://eprint.iacr.org/2024/1855](https://eprint.iacr.org/2024/1855).
-
 These projects/references were instrumental in helping to create this project
 <ul>
   <li>https://github.com/microsoft/Nova/tree0fb0b495f224c555b5b221bd65ea9fbf43384c39</li>
   <li>https://github.com/nalinbhardwaj/Nova-Scotia</li>
   <li>https://github.com/lyronctk/zator/tree/main?tab=readme-ov-file</li>
 </ul>
+
+## Citation
+The full paper can be accessed at [https://eprint.iacr.org/2024/1855](https://eprint.iacr.org/2024/1855).
+
+```
+@misc{cryptoeprint:2024/1855,
+      author = {Noel Elias},
+      title = {Lova: A Novel Framework for Verifying Mathematical Proofs with Incrementally Verifiable Computation},
+      howpublished = {CIFRIS, Cryptology {ePrint} Archive, Paper 2024/1855},
+      year = {2024},
+      url = {https://eprint.iacr.org/2024/1855}
+}
+```
