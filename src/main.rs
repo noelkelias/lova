@@ -201,7 +201,6 @@ fn encode_logic(proof_lines: &Vec<Vec<String>>) -> Vec<i64>{
    encoded_logic
 }
 
-
 //Encode Necessary Reasoning lines
 fn encode_reasoning(proof_lines: &Vec<Vec<String>>, encoded_statements: &Vec<[i64; 3]>) -> Vec<[i64; 6]>{
 

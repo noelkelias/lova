@@ -120,3 +120,4 @@ fn main() {
         run_test(circuit_filepath.clone(), witness_gen_filepath);
     }
 }
+

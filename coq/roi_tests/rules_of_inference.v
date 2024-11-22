@@ -60,6 +60,3 @@ Proof.
   exact H1. 
 Qed.
 
-
-
-
