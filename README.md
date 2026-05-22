@@ -2,7 +2,7 @@
 
 Efficiently verifying mathematical proofs and computation has been a heavily researched topic within Computer Science. Particularly, as proofs become larger, even repetitive statements become much more complex on the prover side and inefficient for verifiers. To solve this problem, we can view this problem through the lens of the Incrementally Verifiable Computation (IVC) and utilize the novel Nova folding scheme that can combine multiple instances into a single folded instance. This repository provides the code of the implementation of a novel pipeline that utilizes this high-speed recursive SNARK, Nova, to develop a scheme with linear prover time, constant verifying capability, dynamic/easy modification, and privacy to efficiently validate mathematical proofs. 
 
-The full paper can be accessed at [https://eprint.iacr.org/2024/1855](https://eprint.iacr.org/2024/1855).
+The full paper can be accessed at [https://eprint.iacr.org/2024/1855](https://eprint.iacr.org/2024/1855) and is published through ACM at [https://dl.acm.org/doi/10.1145/3716816.3727971](https://dl.acm.org/doi/10.1145/3716816.3727971).
 
 ## Methodology
 To achieve such a feat using Nova for mathematical proofs we utilized the following pipeline described in the methodology below. Particularly, the mathematical proofs were first validated for formatting. Then the proof was sliced into independent sections: each with the statements, logic rules, and previous lines that were utilized. Third, the mathematical proof slices were converted in linear constraints based on a proof circuit. Utilizing a multiplexing approach, each instance calculated the necessary sums for all logic rules before conducting the necessary checks as indicated by the logic rule signal. Lastly, each of these linear instances were folded utilizing Nova and converted into a "recursive SNARK". To provide further proof compression, this SNARK was then utilized to form another smaller SNARK using the Spartan SNARK proof system. A diagram is found below: 
@@ -25,14 +25,17 @@ These projects/references were instrumental in helping to create this project
 </ul>
 
 ## Citation
-The full paper can be accessed at [https://eprint.iacr.org/2024/1855](https://eprint.iacr.org/2024/1855).
+The full paper can be accessed at [https://eprint.iacr.org/2024/1855](https://eprint.iacr.org/2024/1855) and is published through ACM at [https://dl.acm.org/doi/10.1145/3716816.3727971](https://dl.acm.org/doi/10.1145/3716816.3727971).
 
 ```
-@misc{cryptoeprint:2024/1855,
-      author = {Noel Elias},
-      title = {Lova: A Novel Framework for Verifying Mathematical Proofs with Incrementally Verifiable Computation},
-      howpublished = {CIFRIS, Cryptology {ePrint} Archive, Paper 2024/1855},
-      year = {2024},
-      url = {https://eprint.iacr.org/2024/1855}
+@inproceedings{elias2025lova,
+  author    = {Noel Elias},
+  title     = {Lova: A Novel Framework for Verifying Mathematical Proofs with Incrementally Verifiable Computation},
+  booktitle = {Proceedings of the 2025 ACM Workshop on Secure and Trustworthy Cyber-Physical Systems},
+  series    = {SaT-CPS '25},
+  year      = {2025},
+  pages     = {63--72},
+  publisher = {Association for Computing Machinery},
+  doi       = {10.1145/3716816.3727971}
 }
 ```
